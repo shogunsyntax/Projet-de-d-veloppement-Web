@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S17AxagsdgE=",
+  "dgSpecHash": "d9e8wtvLcr0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alexandre\\EcommerceApplication\\EcommerceApplication.csproj",
+  "projectFilePath": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\EcommerceApplication\\EcommerceApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexandre\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Alexandre\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

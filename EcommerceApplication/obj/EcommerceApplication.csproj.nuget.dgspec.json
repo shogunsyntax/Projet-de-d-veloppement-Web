@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alexandre\\EcommerceApplication\\EcommerceApplication.csproj": {}
+    "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\EcommerceApplication\\EcommerceApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alexandre\\EcommerceApplication\\EcommerceApplication.csproj": {
+    "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\EcommerceApplication\\EcommerceApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexandre\\EcommerceApplication\\EcommerceApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\EcommerceApplication\\EcommerceApplication.csproj",
         "projectName": "EcommerceApplication",
-        "projectPath": "C:\\Users\\Alexandre\\EcommerceApplication\\EcommerceApplication.csproj",
+        "projectPath": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\EcommerceApplication\\EcommerceApplication.csproj",
         "packagesPath": "C:\\Users\\Alexandre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexandre\\EcommerceApplication\\obj\\",
+        "outputPath": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\EcommerceApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -52,6 +52,8 @@
           "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.3, )"
             }
