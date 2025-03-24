@@ -24,7 +24,7 @@ namespace EcommerceApplication.Models
         [Required(ErrorMessage = "Le mot de passe est obligatoire.")]
         [MinLength(8, ErrorMessage = "Le mot de passe doit contenir au moins 8 caractères.")]
         [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$", 
-            ErrorMessage = "Le mot de passe doit contenir au moins une lettre, un chiffre et un caractère spécial.")]
+        ErrorMessage = "Le mot de passe doit contenir au moins une lettre, un chiffre et un caractère spécial.")]
         public required string MotDePasse { get; set; }
 
         [Required(ErrorMessage = "L'adresse est obligatoire.")]
