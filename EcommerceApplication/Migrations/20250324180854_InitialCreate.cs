@@ -24,19 +24,6 @@ namespace EcommerceApplication.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Paniers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NomCategorie = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Paniers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Utilisateurs",
                 columns: table => new
                 {
@@ -98,27 +85,21 @@ namespace EcommerceApplication.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaniersProduits",
+                name: "Paniers",
                 columns: table => new
                 {
-                    PanierId = table.Column<int>(type: "int", nullable: false),
-                    ProduitId = table.Column<int>(type: "int", nullable: false),
-                    Quantite = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UtilisateurId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PaniersProduits", x => new { x.PanierId, x.ProduitId });
+                    table.PrimaryKey("PK_Paniers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PaniersProduits_Paniers_PanierId",
-                        column: x => x.PanierId,
-                        principalTable: "Paniers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PaniersProduits_Produits_ProduitId",
-                        column: x => x.ProduitId,
-                        principalTable: "Produits",
-                        principalColumn: "IdProduit",
+                        name: "FK_Paniers_Utilisateurs_UtilisateurId",
+                        column: x => x.UtilisateurId,
+                        principalTable: "Utilisateurs",
+                        principalColumn: "IdUtilisateur",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -169,6 +150,31 @@ namespace EcommerceApplication.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PaniersProduits",
+                columns: table => new
+                {
+                    PanierId = table.Column<int>(type: "int", nullable: false),
+                    ProduitId = table.Column<int>(type: "int", nullable: false),
+                    Quantite = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaniersProduits", x => new { x.PanierId, x.ProduitId });
+                    table.ForeignKey(
+                        name: "FK_PaniersProduits_Paniers_PanierId",
+                        column: x => x.PanierId,
+                        principalTable: "Paniers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PaniersProduits_Produits_ProduitId",
+                        column: x => x.ProduitId,
+                        principalTable: "Produits",
+                        principalColumn: "IdProduit",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Commandes_UtilisateurId",
                 table: "Commandes",
@@ -183,6 +189,11 @@ namespace EcommerceApplication.Migrations
                 name: "IX_Paiements_CommandeId",
                 table: "Paiements",
                 column: "CommandeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Paniers_UtilisateurId",
+                table: "Paniers",
+                column: "UtilisateurId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PaniersProduits_ProduitId",

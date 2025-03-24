@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcommerceApplication.Migrations
 {
     [DbContext(typeof(ECommerceDbContext))]
-    [Migration("20250324172954_InitialCreate")]
+    [Migration("20250324180854_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -116,12 +116,12 @@ namespace EcommerceApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("NomCategorie")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("UtilisateurId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UtilisateurId");
 
                     b.ToTable("Paniers");
                 });
@@ -264,6 +264,17 @@ namespace EcommerceApplication.Migrations
                         .IsRequired();
 
                     b.Navigation("Commande");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Panier", b =>
+                {
+                    b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
+                        .WithMany()
+                        .HasForeignKey("UtilisateurId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Utilisateur");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.PanierProduit", b =>
