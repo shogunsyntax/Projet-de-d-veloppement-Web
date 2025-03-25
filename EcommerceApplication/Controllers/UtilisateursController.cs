@@ -51,7 +51,6 @@ public class AdminUtilisateurController: Controller
         //! Ajout en base de données
         _context.Utilisateurs.Add(utilisateur);
         _context.SaveChanges();
-
         return RedirectToAction("List");
     }
 

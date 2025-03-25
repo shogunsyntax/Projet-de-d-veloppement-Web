@@ -4,7 +4,7 @@
 <form method="post" asp-action="create" asp-controller="AdminUtilisateur">
     <div>
         <label>Nom</label>
-        <input type="text" asp-form="Nom" name="Nom" required>
+        <input type="text" asp-for="Nom" name="Nom" required>
         <span asp-validation-for="Nom" class="text-danger"></span>
     </div>
 
