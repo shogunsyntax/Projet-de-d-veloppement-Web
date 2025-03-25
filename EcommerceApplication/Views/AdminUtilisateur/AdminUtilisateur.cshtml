@@ -1,0 +1,35 @@
+@using EcommerceApplication.Models;
+@model IEnumerable<EcommerceApplication.Models.Utilisateur>
+
+<h2>Liste des utilisateurs</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach(var user in Model)
+    {
+        <tr>
+            <td>@user.IdUtilisateur</td>
+            <td>@user.Nom</td>
+            <td>@user.Prenom</td>
+            <td>@user.Email</td>
+            <td>@user.Role</td>
+            <td>
+                <a href="/admin/utilisateurs/edit/@user.IdUtilisateur">Modifier</a> |
+                <form method="post" action="/admin/utilisateurs/delete/@user.IdUtilisateur" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">Supprimer</button>
+                </form>
+            </td>
+
+        </tr>
+    }
+</table>
+
+<a href="/admin/utilisateurs/create">Ajouter un nouvel utilisateur</a>
