@@ -9,11 +9,13 @@ using EcommerceApplication.Models.ViewModels;
 public class AdminUtilisateurController : Controller
 {
     private readonly ECommerceDbContext _context;
+    private readonly ILogger<AdminUtilisateurController> _logger;
 
     //! Constructeur qui injecte le contexte de base de données
-    public AdminUtilisateurController(ECommerceDbContext context)
+    public AdminUtilisateurController(ECommerceDbContext context,ILogger<AdminUtilisateurController> logger)
     {
         _context = context;
+        _logger = logger;
     }
 
     //* Affiche la liste  des utilisateurs
@@ -40,22 +42,30 @@ public class AdminUtilisateurController : Controller
             Role = "Client"
         });
     }
+   
 
+ 
     //* Traite l'ajout d'un utilisateur
     [HttpPost("create")]
     public IActionResult Create(Utilisateur utilisateur)
     {
-        if (!ModelState.IsValid)
+         if (!ModelState.IsValid)
         {
+             _logger.LogInformation("Create GET");
+             _logger.LogWarning("Attention");
+             _logger.LogError("Erreur");
             return View(utilisateur);
+
         }
 
-        //? Hachage du mot de passe
+        //! Hachage du mot de passe
         utilisateur.MotDePasse = BCrypt.Net.BCrypt.HashPassword(utilisateur.MotDePasse);
-      
+
         //! Ajout en base de données
         _context.Utilisateurs.Add(utilisateur);
         _context.SaveChanges();
+       
+
         return RedirectToAction("List");
 
         
