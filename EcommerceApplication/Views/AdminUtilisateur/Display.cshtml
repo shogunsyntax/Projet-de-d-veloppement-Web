@@ -1,0 +1,68 @@
+<!----------- Importation du namespace contenant le modèle Utilisateur ----------->
+@using EcommerceApplication.Models 
+
+<!----------- Déclaration du modèle de la vue : ici, on affiche une liste d'objets Utilisateur ----------->
+@model IEnumerable<EcommerceApplication.Models.Utilisateur> 
+
+@{
+    // Titre de la page, utilisé dans le layout (_Layout.cshtml)
+    ViewData["Title"] = "Liste des utilisateurs"; 
+}
+
+<!----- Titre affiché sur la page ----->
+<h2>Liste des utilisateurs</h2> 
+
+<!----- Tableau HTML dégueu :) ----->
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <!----- En-têtes du tableau ----->
+            <th>ID</th>
+            <th>Rôle</th>
+            <th>Localité</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Adresse</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!----- Boucle sur chaque utilisateur de la liste, code dans le controller  ----->
+        @foreach (var user in Model)
+        {
+            <tr>
+                <!----- Affichage des données utilisateur ----->
+                <td>@user.IdUtilisateur</td>
+                <td>@user.Role?.IntituleRole</td> <!----- Se fait grâce à l'accès données par la la propriété de navigation vers Role ----->
+                <td>@user.Localite?.NomLocalite</td> <!----- Se fait grâce à l'accès données par la propriété de navigation vers Localite ----->
+                <td>@user.Nom</td>
+                <td>@user.Prenom</td>
+                <td>@user.Adresse</td>
+                <td>@user.Email</td>
+                <td>
+                    <!----- ----------- Lien vers l'édition de l'utilisateur ----------- ----->
+                    <a href="/admin/utilisateurs/edit/@user.IdUtilisateur">Modifier</a>
+
+                    <!----- ----------- Formulaire pour supprimer l'utilisateur ----------- ----->
+                    <form method="post" action="/admin/utilisateurs/delete/@user.IdUtilisateur" style="display:inline;">
+                    <!----- Token anti-CSRF pour sécuriser le POST : c'est un peu avancé mais sympa à savoir,
+                     ASP NET va ajouter un Token caché,dans le controller on add [ValidateAntiForgeryToken] qui attend le Token provenant du form
+                      ----->
+                        @Html.AntiForgeryToken() 
+
+                        <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+                            Supprimer
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!----- Lien pour accéder à la création d’un nouvel utilisateur ----->
+<p>
+    <a href="/admin/utilisateurs/create">Ajouter un nouvel utilisateur</a>
+</p>
