@@ -13,6 +13,8 @@ using EcommerceApplication.Data;
 // Importation des modèles
 using EcommerceApplication.Models;
 
+using EcommerceApplication.Models.ViewModels;
+
 [Route("admin/utilisateurs")]
 
 public class AdminUtilisateurController : Controller
