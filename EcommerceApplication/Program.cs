@@ -10,6 +10,7 @@ builder.Services.AddDbContext<ECommerceDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
+builder.Logging.AddFilter("Microsoft.EntityFrameworkCore.Database.Command",LogLevel.None);
 
 var app = builder.Build();
 app.UseHttpsRedirection();
