@@ -8,5 +8,7 @@ namespace EcommerceApplication.Models{
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public required int CategorieId { get; set; }
     public required int ProduitId{get;set;}
+     public ICollection<Categorie> Categorie{get;set;} = new List<Categorie>();
+      public ICollection<Produit> Produit{get;set;} = new List<Produit>();
 }
 }
