@@ -19,6 +19,7 @@ namespace EcommerceApplication.Data
         {
             modelBuilder.Entity<PanierProduit>().HasKey(pp => new { pp.PanierId, pp.ProduitId });
             modelBuilder.Entity<CommandeProduit>().HasKey(cp => new { cp.CommandeId, cp.ProduitId });
+            modelBuilder.Entity<Utilisateur>().HasKey(uu => new{uu.IdUtilisateur,uu.IdRole});
         }
     }
 }
