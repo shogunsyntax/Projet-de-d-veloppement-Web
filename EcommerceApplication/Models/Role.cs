@@ -10,5 +10,7 @@ namespace EcommerceApplication.Models{
     public required string IntituleRole{get;set;}
 
     public required string DetailRole{get;set;}
+
+    public ICollection<Utilisateur> Utilisateur{get;set;} = new List<Utilisateur>();
 }
 }
