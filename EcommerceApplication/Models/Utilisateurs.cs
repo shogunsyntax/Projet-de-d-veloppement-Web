@@ -1,32 +1,37 @@
+// Importation de l'espace de noms pour les attributs de validation comme [Required], [StringLength]...
 using System.ComponentModel.DataAnnotations;
+
+// Importation de l'espace de noms pour les annotations de db comme [Key], [DatabaseGenerated]...
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EcommerceApplication.Models
+// Déclaration du namespace qui regroupe les classes de type Models
+namespace EcommerceApplication.Models 
 {
+    // Définition de la classe Utilisateur — représente un utilisateur dans la DB
     public class Utilisateur
     {   
-        //? Indique à Entity Framework que c'est la clé primaire de la table
+        // Indique à Entity Framework que c'est la clé primaire de la table
         [Key] 
-        //? Spécifie que la valeur est auto-incrémentée 
+        // Spécifie que la valeur est auto-incrémentée 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
-        //? Déclaration de la propriété id de l'utilisateur
+        // Déclaration de la propriété id de l'utilisateur
         public int IdUtilisateur { get; set; }
-        //* Liaison avec la table Role
-        //* Validation : ce champ doit être renseigné (sinon erreur affichée)
+        // Liaison avec la table Role
+        // Validation : ce champ doit être renseigné (sinon erreur affichée)
         [Required(ErrorMessage = "Le Role est obligatoire.")] 
-        //* Clé étrangère qui peut être null vers la table Role (Apparement c'est qqchose propre au binding ASP NET CORE.... à creuser)
-        //* Binding : ASP.NET Core fait correspondre les champs du formulaire HTML (grâce au name="...") 
-        //* avec les propriétés du modèle C# (ex: name="Nom" =  Utilisateur.Nom)
+        // Clé étrangère qui peut être null vers la table Role (Apparement c'est qqchose propre au binding ASP NET CORE.... à creuser)
+        // Binding : ASP.NET Core fait correspondre les champs du formulaire HTML (grâce au name="...") 
+        // avec les propriétés du modèle C# (ex: name="Nom" =  Utilisateur.Nom)
 
 
-        //? ----- RELATION AVEC ROLE -----
+        // ----- RELATION AVEC ROLE -----
         public int? IdRole { get; set; } 
-        //! Propriété de navigation vers l'objet Role (Accèder directement à l'objet rôle pour par exemple, récupérer l'intitulé du rôle)
+        // Propriété de navigation vers l'objet Role (Accèder directement à l'objet rôle pour par exemple, récupérer l'intitulé du rôle)
         public Role? Role { get; set; } 
-        //* Liaison avec la table Localite
-        //* Validation : champ obligatoire
+        // Liaison avec la table Localite
+        // Validation : champ obligatoire
         [Required(ErrorMessage = "Le Localite est obligatoire.")] 
-        //! Clé étrangère qui peut-être null vers la table Localite (Apparement c'est qqchose propre au binding ASP NET CORE.... à creuser)
+        // Clé étrangère qui peut-être null vers la table Localite (Apparement c'est qqchose propre au binding ASP NET CORE.... à creuser)
 
 
         // ----- RELATION AVEC LOCALITE -----

@@ -2,12 +2,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceApplication.Models{
-    public class Panier
+    public class Detenir
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int PanierId { get; set; }
-    public required int UtilisateurId { get; set; }
-    public required Utilisateur Utilisateur { get; set; }
+    public required int RoleId { get; set; }
+    public required int PermissionId{get;set;}
 }
 }

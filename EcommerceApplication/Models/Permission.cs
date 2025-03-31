@@ -2,12 +2,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceApplication.Models{
-    public class Panier
+    public class Permission
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int PanierId { get; set; }
-    public required int UtilisateurId { get; set; }
-    public required Utilisateur Utilisateur { get; set; }
+    public  int? PermissionId { get; set; }
+
+    public required string Intitule{get;set;}
+
+
+    public required string Description{get;set;}
 }
 }

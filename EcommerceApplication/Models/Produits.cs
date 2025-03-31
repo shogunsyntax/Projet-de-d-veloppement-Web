@@ -11,6 +11,8 @@ namespace EcommerceApplication.Models
         public int IdProduit { get; set; }
         [Required(ErrorMessage = "Le nom du produit est obligatoire.")]
         [StringLength(50, ErrorMessage = "Le nom du produit ne peut pas dépasser 50 caractères.")]
+
+        public required int TvaId{get;set;}
         public required string NomProduit { get; set; }
         [Required(ErrorMessage = "La description du produit est obligatoire.")]
         [StringLength(50, ErrorMessage = "La description du produit ne peut pas dépasser 50 caractères.")]

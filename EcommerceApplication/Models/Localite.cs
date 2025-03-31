@@ -2,12 +2,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceApplication.Models{
-    public class Panier
+    public class Localite
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int PanierId { get; set; }
-    public required int UtilisateurId { get; set; }
-    public required Utilisateur Utilisateur { get; set; }
+    public  int? LocaliteId { get; set; }
+
+    public required int CodePostal{get;set;}
+
+
+    public required string Intitule{get;set;}
 }
 }
