@@ -372,7 +372,7 @@ namespace EcommerceApplication.Migrations
                     b.HasOne("EcommerceApplication.Models.Panier", null)
                         .WithMany()
                         .HasForeignKey("PanierId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Utilisateur", null)
@@ -433,7 +433,7 @@ namespace EcommerceApplication.Migrations
                     b.HasOne("EcommerceApplication.Models.Utilisateur", null)
                         .WithMany()
                         .HasForeignKey("UtilisateurId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
