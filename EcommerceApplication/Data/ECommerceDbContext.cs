@@ -59,13 +59,15 @@ namespace EcommerceApplication.Data
             modelBuilder.Entity<Panier>()
                 .HasOne<Utilisateur>()
                 .WithMany()
-                .HasForeignKey(p => p.UtilisateurId);
+                .HasForeignKey(p => p.UtilisateurId)
+                .OnDelete(DeleteBehavior.ClientCascade);
 
             // ----- Relations Commande <-> Panier -----
             modelBuilder.Entity<Commande>()
                 .HasOne<Panier>()
                 .WithMany()
-                .HasForeignKey(c => c.PanierId);
+                .HasForeignKey(c => c.PanierId)
+                .OnDelete(DeleteBehavior.ClientCascade);
 
             // ----- Relations Commande <-> Utilisateur -----
             modelBuilder.Entity<Commande>()
