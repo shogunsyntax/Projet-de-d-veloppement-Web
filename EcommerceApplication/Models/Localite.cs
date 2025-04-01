@@ -8,6 +8,8 @@ namespace EcommerceApplication.Models{
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public  int? LocaliteId { get; set; }
 
+    public required string NomLocalite{get; set;}
+
     public required int CodePostal{get;set;}
 
 

@@ -9,8 +9,8 @@ namespace EcommerceApplication.Models{
     public required int RoleId { get; set; }
     public required int PermissionId{get;set;}
 
-    public ICollection<Role> Role{get;set;} = new List<Role>();
+    public Role? Role{get;set;}
 
-    public ICollection<Permission> Permission{get;set;} = new List<Permission>();
+    public Permission? Permission{get;set;} 
 }
 }

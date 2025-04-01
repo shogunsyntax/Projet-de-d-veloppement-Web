@@ -85,7 +85,7 @@ namespace EcommerceApplication.Data
                 .HasForeignKey(c => c.CommandeId);
 
             // ----- Relations Appartenir <-> Categorie & Produit -----
-            modelBuilder.Entity<Appartenir>()
+          /*  modelBuilder.Entity<Appartenir>()
                 .HasOne(a => a.Categorie)
                 .WithMany()
                 .HasForeignKey(a => a.CategorieId);
@@ -93,7 +93,7 @@ namespace EcommerceApplication.Data
             modelBuilder.Entity<Appartenir>()
                 .HasOne(a => a.Produit)
                 .WithMany()
-                .HasForeignKey(a => a.ProduitId);
+                .HasForeignKey(a => a.ProduitId);*/
 
             // ----- Relations Ajouter <-> Panier & Produit -----
             modelBuilder.Entity<PanierProduit>()
@@ -107,7 +107,7 @@ namespace EcommerceApplication.Data
                 .HasForeignKey(a => a.ProduitId);
 
             // ----- Relations Detenir <-> Role & Permission -----
-            modelBuilder.Entity<Detenir>()
+          /*  modelBuilder.Entity<Detenir>()
                 .HasOne(d => d.Role)
                 .WithMany()
                 .HasForeignKey(d => d.RoleId);
@@ -115,7 +115,7 @@ namespace EcommerceApplication.Data
             modelBuilder.Entity<Detenir>()
                 .HasOne(d => d.Permission)
                 .WithMany()
-                .HasForeignKey(d => d.PermissionId);
+                .HasForeignKey(d => d.PermissionId);*/
         }
     }
 }

@@ -22,34 +22,61 @@ namespace EcommerceApplication.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EcommerceApplication.Models.Categorie", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CategorieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategorieId"));
+
+                    b.Property<int>("ProduitId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategorieId", "ProduitId");
+
+                    b.ToTable("Appartenir");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Categorie", b =>
+                {
+                    b.Property<int>("CategorieId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategorieId"));
+
+                    b.Property<int?>("AppartenirCategorieId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AppartenirProduitId")
+                        .HasColumnType("int");
 
                     b.Property<string>("NomCategorie")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CategorieId");
 
-                    b.ToTable("Categories");
+                    b.HasIndex("AppartenirCategorieId", "AppartenirProduitId");
+
+                    b.ToTable("Categorie");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Commande", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CommandeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommandeId"));
 
                     b.Property<DateTime>("DateCommande")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("PanierId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Statut")
                         .IsRequired()
@@ -61,11 +88,18 @@ namespace EcommerceApplication.Migrations
                     b.Property<int>("UtilisateurId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("UtilisateurIdUtilisateur")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommandeId");
+
+                    b.HasIndex("PanierId");
 
                     b.HasIndex("UtilisateurId");
 
-                    b.ToTable("Commandes");
+                    b.HasIndex("UtilisateurIdUtilisateur");
+
+                    b.ToTable("Commande");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.CommandeProduit", b =>
@@ -84,54 +118,70 @@ namespace EcommerceApplication.Migrations
 
                     b.HasIndex("ProduitId");
 
-                    b.ToTable("CommandesProduits");
+                    b.ToTable("Contenir");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.Paiement", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Detenir", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PermissionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
 
-                    b.Property<int>("CommandeId")
+                    b.HasKey("PermissionId", "RoleId");
+
+                    b.ToTable("Detenir");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Localite", b =>
+                {
+                    b.Property<int>("LocaliteId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Methode")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LocaliteId"));
+
+                    b.Property<int>("CodePostal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Intitule")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Montant")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Statut")
+                    b.Property<string>("NomLocalite")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("LocaliteId");
 
-                    b.HasIndex("CommandeId");
-
-                    b.ToTable("Paiements");
+                    b.ToTable("Localite");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Panier", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PanierId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PanierId"));
 
                     b.Property<int>("UtilisateurId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("UtilisateurIdUtilisateur")
+                        .HasColumnType("int");
+
+                    b.HasKey("PanierId");
 
                     b.HasIndex("UtilisateurId");
 
-                    b.ToTable("Paniers");
+                    b.HasIndex("UtilisateurIdUtilisateur");
+
+                    b.ToTable("Panier");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.PanierProduit", b =>
@@ -150,7 +200,36 @@ namespace EcommerceApplication.Migrations
 
                     b.HasIndex("ProduitId");
 
-                    b.ToTable("PaniersProduits");
+                    b.ToTable("Ajouter");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Permission", b =>
+                {
+                    b.Property<int>("PermissionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PermissionId"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DetenirPermissionId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DetenirRoleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Intitule")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PermissionId");
+
+                    b.HasIndex("DetenirPermissionId", "DetenirRoleId");
+
+                    b.ToTable("Permission");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Produit", b =>
@@ -160,6 +239,12 @@ namespace EcommerceApplication.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdProduit"));
+
+                    b.Property<int?>("AppartenirCategorieId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AppartenirProduitId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CategorieId")
                         .HasMaxLength(50)
@@ -176,8 +261,7 @@ namespace EcommerceApplication.Migrations
 
                     b.Property<string>("NomProduit")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Prix")
                         .HasColumnType("decimal(18,2)");
@@ -186,11 +270,68 @@ namespace EcommerceApplication.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("int");
 
+                    b.Property<int>("TvaId")
+                        .HasMaxLength(50)
+                        .HasColumnType("int");
+
                     b.HasKey("IdProduit");
 
                     b.HasIndex("CategorieId");
 
-                    b.ToTable("Produits");
+                    b.HasIndex("TvaId");
+
+                    b.HasIndex("AppartenirCategorieId", "AppartenirProduitId");
+
+                    b.ToTable("Produit");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Role", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+
+                    b.Property<string>("DetailRole")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DetenirPermissionId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DetenirRoleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IntituleRole")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RoleId");
+
+                    b.HasIndex("DetenirPermissionId", "DetenirRoleId");
+
+                    b.ToTable("Role");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.TVA", b =>
+                {
+                    b.Property<int>("TvaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TvaId"));
+
+                    b.Property<int>("TauxTva")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TypeProduitTva")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TvaId");
+
+                    b.ToTable("TVA");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Utilisateur", b =>
@@ -210,6 +351,12 @@ namespace EcommerceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IdLocalite")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRole")
+                        .HasColumnType("int");
+
                     b.Property<string>("MotDePasse")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -224,20 +371,39 @@ namespace EcommerceApplication.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("IdUtilisateur");
 
-                    b.ToTable("Utilisateurs");
+                    b.HasIndex("IdLocalite");
+
+                    b.HasIndex("IdRole");
+
+                    b.ToTable("Utilisateur");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Categorie", b =>
+                {
+                    b.HasOne("EcommerceApplication.Models.Appartenir", null)
+                        .WithMany("Categorie")
+                        .HasForeignKey("AppartenirCategorieId", "AppartenirProduitId");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Commande", b =>
                 {
-                    b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
+                    b.HasOne("EcommerceApplication.Models.Panier", null)
+                        .WithMany()
+                        .HasForeignKey("PanierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceApplication.Models.Utilisateur", null)
                         .WithMany()
                         .HasForeignKey("UtilisateurId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
+                        .WithMany()
+                        .HasForeignKey("UtilisateurIdUtilisateur")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -263,22 +429,17 @@ namespace EcommerceApplication.Migrations
                     b.Navigation("Produit");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.Paiement", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Panier", b =>
                 {
-                    b.HasOne("EcommerceApplication.Models.Commande", "Commande")
+                    b.HasOne("EcommerceApplication.Models.Utilisateur", null)
                         .WithMany()
-                        .HasForeignKey("CommandeId")
+                        .HasForeignKey("UtilisateurId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Commande");
-                });
-
-            modelBuilder.Entity("EcommerceApplication.Models.Panier", b =>
-                {
                     b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
                         .WithMany()
-                        .HasForeignKey("UtilisateurId")
+                        .HasForeignKey("UtilisateurIdUtilisateur")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -304,6 +465,13 @@ namespace EcommerceApplication.Migrations
                     b.Navigation("Produit");
                 });
 
+            modelBuilder.Entity("EcommerceApplication.Models.Permission", b =>
+                {
+                    b.HasOne("EcommerceApplication.Models.Detenir", null)
+                        .WithMany("Permission")
+                        .HasForeignKey("DetenirPermissionId", "DetenirRoleId");
+                });
+
             modelBuilder.Entity("EcommerceApplication.Models.Produit", b =>
                 {
                     b.HasOne("EcommerceApplication.Models.Categorie", "Categorie")
@@ -312,7 +480,67 @@ namespace EcommerceApplication.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EcommerceApplication.Models.TVA", null)
+                        .WithMany()
+                        .HasForeignKey("TvaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceApplication.Models.Appartenir", null)
+                        .WithMany("Produit")
+                        .HasForeignKey("AppartenirCategorieId", "AppartenirProduitId");
+
                     b.Navigation("Categorie");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Role", b =>
+                {
+                    b.HasOne("EcommerceApplication.Models.Detenir", null)
+                        .WithMany("Role")
+                        .HasForeignKey("DetenirPermissionId", "DetenirRoleId");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Utilisateur", b =>
+                {
+                    b.HasOne("EcommerceApplication.Models.Localite", "Localite")
+                        .WithMany("Utilisateur")
+                        .HasForeignKey("IdLocalite")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceApplication.Models.Role", "Role")
+                        .WithMany("Utilisateur")
+                        .HasForeignKey("IdRole")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Localite");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
+                {
+                    b.Navigation("Categorie");
+
+                    b.Navigation("Produit");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Detenir", b =>
+                {
+                    b.Navigation("Permission");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Localite", b =>
+                {
+                    b.Navigation("Utilisateur");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Role", b =>
+                {
+                    b.Navigation("Utilisateur");
                 });
 #pragma warning restore 612, 618
         }
