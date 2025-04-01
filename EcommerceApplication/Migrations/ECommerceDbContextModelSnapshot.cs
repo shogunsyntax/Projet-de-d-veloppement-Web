@@ -28,12 +28,12 @@ namespace EcommerceApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategorieId"));
-
                     b.Property<int>("ProduitId")
                         .HasColumnType("int");
 
                     b.HasKey("CategorieId", "ProduitId");
+
+                    b.HasIndex("ProduitId");
 
                     b.ToTable("Appartenir");
                 });
@@ -46,20 +46,12 @@ namespace EcommerceApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategorieId"));
 
-                    b.Property<int?>("AppartenirCategorieId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AppartenirProduitId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NomCategorie")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CategorieId");
-
-                    b.HasIndex("AppartenirCategorieId", "AppartenirProduitId");
 
                     b.ToTable("Categorie");
                 });
@@ -130,9 +122,9 @@ namespace EcommerceApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
-
                     b.HasKey("PermissionId", "RoleId");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Detenir");
                 });
@@ -215,19 +207,11 @@ namespace EcommerceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DetenirPermissionId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DetenirRoleId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Intitule")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PermissionId");
-
-                    b.HasIndex("DetenirPermissionId", "DetenirRoleId");
 
                     b.ToTable("Permission");
                 });
@@ -239,12 +223,6 @@ namespace EcommerceApplication.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdProduit"));
-
-                    b.Property<int?>("AppartenirCategorieId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AppartenirProduitId")
-                        .HasColumnType("int");
 
                     b.Property<int>("CategorieId")
                         .HasMaxLength(50)
@@ -280,8 +258,6 @@ namespace EcommerceApplication.Migrations
 
                     b.HasIndex("TvaId");
 
-                    b.HasIndex("AppartenirCategorieId", "AppartenirProduitId");
-
                     b.ToTable("Produit");
                 });
 
@@ -297,19 +273,11 @@ namespace EcommerceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DetenirPermissionId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DetenirRoleId")
-                        .HasColumnType("int");
-
                     b.Property<string>("IntituleRole")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoleId");
-
-                    b.HasIndex("DetenirPermissionId", "DetenirRoleId");
 
                     b.ToTable("Role");
                 });
@@ -380,11 +348,23 @@ namespace EcommerceApplication.Migrations
                     b.ToTable("Utilisateur");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.Categorie", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
                 {
-                    b.HasOne("EcommerceApplication.Models.Appartenir", null)
-                        .WithMany("Categorie")
-                        .HasForeignKey("AppartenirCategorieId", "AppartenirProduitId");
+                    b.HasOne("EcommerceApplication.Models.Categorie", "Categorie")
+                        .WithMany()
+                        .HasForeignKey("CategorieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceApplication.Models.Produit", "Produit")
+                        .WithMany()
+                        .HasForeignKey("ProduitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categorie");
+
+                    b.Navigation("Produit");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Commande", b =>
@@ -429,6 +409,25 @@ namespace EcommerceApplication.Migrations
                     b.Navigation("Produit");
                 });
 
+            modelBuilder.Entity("EcommerceApplication.Models.Detenir", b =>
+                {
+                    b.HasOne("EcommerceApplication.Models.Permission", "Permission")
+                        .WithMany()
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceApplication.Models.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Permission");
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("EcommerceApplication.Models.Panier", b =>
                 {
                     b.HasOne("EcommerceApplication.Models.Utilisateur", null)
@@ -465,13 +464,6 @@ namespace EcommerceApplication.Migrations
                     b.Navigation("Produit");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.Permission", b =>
-                {
-                    b.HasOne("EcommerceApplication.Models.Detenir", null)
-                        .WithMany("Permission")
-                        .HasForeignKey("DetenirPermissionId", "DetenirRoleId");
-                });
-
             modelBuilder.Entity("EcommerceApplication.Models.Produit", b =>
                 {
                     b.HasOne("EcommerceApplication.Models.Categorie", "Categorie")
@@ -486,18 +478,7 @@ namespace EcommerceApplication.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EcommerceApplication.Models.Appartenir", null)
-                        .WithMany("Produit")
-                        .HasForeignKey("AppartenirCategorieId", "AppartenirProduitId");
-
                     b.Navigation("Categorie");
-                });
-
-            modelBuilder.Entity("EcommerceApplication.Models.Role", b =>
-                {
-                    b.HasOne("EcommerceApplication.Models.Detenir", null)
-                        .WithMany("Role")
-                        .HasForeignKey("DetenirPermissionId", "DetenirRoleId");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Utilisateur", b =>
@@ -515,20 +496,6 @@ namespace EcommerceApplication.Migrations
                         .IsRequired();
 
                     b.Navigation("Localite");
-
-                    b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
-                {
-                    b.Navigation("Categorie");
-
-                    b.Navigation("Produit");
-                });
-
-            modelBuilder.Entity("EcommerceApplication.Models.Detenir", b =>
-                {
-                    b.Navigation("Permission");
 
                     b.Navigation("Role");
                 });
