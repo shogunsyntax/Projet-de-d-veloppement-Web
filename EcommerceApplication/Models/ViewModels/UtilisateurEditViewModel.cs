@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace EcommerceApplication.Models.ViewModels{
   
     public class UtilisateurEditViewModel{ 
@@ -22,5 +23,9 @@ namespace EcommerceApplication.Models.ViewModels{
         public  int? IdRole{get;set;}
 
         public  int? IdLocalite{get; set;}
+
+        public List<SelectListItem> Localites = new List<SelectListItem>();
+
+        public List<SelectListItem> Roles = new List<SelectListItem>();
 
 }}
