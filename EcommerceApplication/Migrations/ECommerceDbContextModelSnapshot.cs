@@ -80,7 +80,7 @@ namespace EcommerceApplication.Migrations
                     b.Property<int>("UtilisateurId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UtilisateurIdUtilisateur")
+                    b.Property<int?>("UtilisateurIdUtilisateur")
                         .HasColumnType("int");
 
                     b.HasKey("CommandeId");
@@ -161,10 +161,13 @@ namespace EcommerceApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PanierId"));
 
-                    b.Property<int>("UtilisateurId")
+                    b.Property<DateTime>("DatePanier")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UtilisateurId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UtilisateurIdUtilisateur")
+                    b.Property<int?>("UtilisateurIdUtilisateur")
                         .HasColumnType("int");
 
                     b.HasKey("PanierId");
@@ -353,13 +356,13 @@ namespace EcommerceApplication.Migrations
                     b.HasOne("EcommerceApplication.Models.Categorie", "Categorie")
                         .WithMany()
                         .HasForeignKey("CategorieId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Produit", "Produit")
                         .WithMany()
                         .HasForeignKey("ProduitId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Categorie");
@@ -372,20 +375,18 @@ namespace EcommerceApplication.Migrations
                     b.HasOne("EcommerceApplication.Models.Panier", null)
                         .WithMany()
                         .HasForeignKey("PanierId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Utilisateur", null)
                         .WithMany()
                         .HasForeignKey("UtilisateurId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
                         .WithMany()
-                        .HasForeignKey("UtilisateurIdUtilisateur")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UtilisateurIdUtilisateur");
 
                     b.Navigation("Utilisateur");
                 });
@@ -433,14 +434,11 @@ namespace EcommerceApplication.Migrations
                     b.HasOne("EcommerceApplication.Models.Utilisateur", null)
                         .WithMany()
                         .HasForeignKey("UtilisateurId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
                         .WithMany()
-                        .HasForeignKey("UtilisateurIdUtilisateur")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UtilisateurIdUtilisateur");
 
                     b.Navigation("Utilisateur");
                 });
