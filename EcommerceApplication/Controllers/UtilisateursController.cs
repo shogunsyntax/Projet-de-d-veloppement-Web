@@ -171,7 +171,7 @@ public class AdminUtilisateurController : Controller
             // users qu'on appelle dans la vue
             return View("AdminUtilisateur", users);
         }
-}
+
         // ---------------------------
         // POST: Suppression d’un utilisateur
         // ---------------------------
@@ -180,8 +180,8 @@ public class AdminUtilisateurController : Controller
         // ---------------------------
         // GET: Modification d’un utilisateur
         // ---------------------------
-       //[HttpGet("edit/{id}")]
-/*public IActionResult Edit(int id)
+       [HttpGet("edit/{id}")]
+public IActionResult Edit(int id)
 {
     _logger.LogInformation(">>> [GET] Edit appelé pour l'utilisateur ID : {Id}", id);
 
@@ -228,9 +228,9 @@ public class AdminUtilisateurController : Controller
 
     // Étape 5 : Affichage de la vue
     return View(vm);
-}*/
+}
 
-/*
+
 [HttpPost("edit/{id}")]
 [ValidateAntiForgeryToken]
 public IActionResult Edit(int id, UtilisateurEditViewModel vm)
@@ -278,5 +278,5 @@ public IActionResult Edit(int id, UtilisateurEditViewModel vm)
 
     }
 
-*/
+
 
