@@ -1,4 +1,4 @@
-@model EcommerceApplication.Models.ViewModels.UtilisateurViewModel
+@model EcommerceApplication.Models.ViewModels.UtilisateurEditViewModel
 
 <h2>Modifier un utilisateur</h2>
 
@@ -35,7 +35,7 @@
      <div>
         <label>Rôle</label>
         <select asp-for="Role" name="Role">
-            <option value="Client" selected="@(Model.Role=="Client")">Client</option>
+            <option value="Client" selected="@(Model.Role =="Client")">Client</option>
             <option value="Admin" selected="@(Model.Role == "Admin")">Admin</option>
         </select>
         <span asp-validation-for="Role" class="text-danger"></span>

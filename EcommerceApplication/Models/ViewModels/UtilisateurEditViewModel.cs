@@ -22,6 +22,7 @@ namespace EcommerceApplication.Models.ViewModels{
         [Required]
         public  int? IdRole{get;set;}
 
+
         public  int? IdLocalite{get; set;}
 
         public List<SelectListItem> Localites = new List<SelectListItem>();
