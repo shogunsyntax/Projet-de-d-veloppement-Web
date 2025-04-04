@@ -20,7 +20,7 @@
             <td>@user.Nom</td>
             <td>@user.Prenom</td>
             <td>@user.Email</td>
-            <td>@user.Role</td>
+            <td>@user.Role?.IntituleRole</td>
             <td>
                 <a href="/admin/utilisateurs/edit/@user.IdUtilisateur">Modifier</a> |
                 <form method="post" action="/admin/utilisateurs/delete/@user.IdUtilisateur" style="display:inline;">
