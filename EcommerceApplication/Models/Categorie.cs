@@ -6,7 +6,7 @@ namespace EcommerceApplication.Models{
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public required int CategorieId { get; set; }
+    public  int CategorieId { get; set; }
 
     [Required(ErrorMessage = "Le nom de la catégorie est obligatoire.")]
     [StringLength(50, ErrorMessage = "Le nom de la catégorie ne peut pas dépasser 50 caractères.")]
