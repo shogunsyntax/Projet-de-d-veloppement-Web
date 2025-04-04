@@ -6,8 +6,8 @@ namespace EcommerceApplication.Models{
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public required int CategorieId { get; set; }
-    public required int ProduitId{get;set;}
+    public  int CategorieId { get; set; }
+    public int? ProduitId{get;set;}
     public Categorie? Categorie{get;set;} 
     public Produit? Produit{get;set;}
 }
