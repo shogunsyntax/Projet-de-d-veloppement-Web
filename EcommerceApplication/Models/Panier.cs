@@ -7,7 +7,9 @@ namespace EcommerceApplication.Models{
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int PanierId { get; set; }
-    public required int UtilisateurId { get; set; }
-    public required Utilisateur Utilisateur { get; set; }
+    public int? UtilisateurId { get; set; }
+    public  Utilisateur? Utilisateur { get; set; }
+
+    public DateTime DatePanier {get;set;}
 }
 }
