@@ -60,21 +60,21 @@ namespace EcommerceApplication.Data
                 .HasOne<Utilisateur>()
                 .WithMany()
                 .HasForeignKey(p => p.UtilisateurId)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             // ----- Relations Commande <-> Panier -----
             modelBuilder.Entity<Commande>()
                 .HasOne<Panier>()
                 .WithMany()
                 .HasForeignKey(c => c.PanierId)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             // ----- Relations Commande <-> Utilisateur -----
             modelBuilder.Entity<Commande>()
                 .HasOne<Utilisateur>()
                 .WithMany()
-                .HasForeignKey(c => c.UtilisateurId);
-
+                .HasForeignKey(c => c.UtilisateurId)
+                .OnDelete(DeleteBehavior.Restrict);
             // ----- Relations Contenir <-> Produit & Commande -----
             modelBuilder.Entity<CommandeProduit>()
                 .HasOne(c => c.Produit)
@@ -90,12 +90,13 @@ namespace EcommerceApplication.Data
             modelBuilder.Entity<Appartenir>()
                 .HasOne(a => a.Categorie)
                 .WithMany()
-                .HasForeignKey(a => a.CategorieId);
-
+                .HasForeignKey(a => a.CategorieId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Appartenir>()
                 .HasOne(a => a.Produit)
                 .WithMany()
-                .HasForeignKey(a => a.ProduitId);
+                .HasForeignKey(a => a.ProduitId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // ----- Relations Ajouter <-> Panier & Produit -----
             modelBuilder.Entity<PanierProduit>()
