@@ -29,10 +29,10 @@ namespace EcommerceApplication.Models
         [Required(ErrorMessage = "La categorie est obligatoire.")]
         [Range(0, int.MaxValue, ErrorMessage = "Entrer un nombre valide")]
         [StringLength(50, ErrorMessage = "La categorie n'est pas valide.")]
-        public required int CategorieId { get; set; }
+        public  int CategorieId { get; set; }
         [Required(ErrorMessage = "La categorie est obligatoire.")]
-        //! Association for foreign key
-        public required Categorie Categorie { get; set; }
+        
+        public  Categorie? Categorie { get; set; }
         [Required(ErrorMessage = "L'image est obligatoire.")]
         [Url(ErrorMessage = "L'Image n'est pas valide.")]
         public required string Image { get; set; }
