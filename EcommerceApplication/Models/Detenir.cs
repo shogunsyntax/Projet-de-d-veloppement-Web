@@ -6,8 +6,8 @@ namespace EcommerceApplication.Models{
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public required int RoleId { get; set; }
-    public required int PermissionId{get;set;}
+    public required int IdRole { get; set; }
+    public required int IdPermission{get;set;}
 
     public Role? Role{get;set;}
 
