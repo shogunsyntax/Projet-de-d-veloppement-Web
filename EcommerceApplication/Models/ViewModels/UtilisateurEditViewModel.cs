@@ -19,7 +19,7 @@ namespace EcommerceApplication.Models.ViewModels{
         [Required]
         public required string Adresse{get;set;}
 
-        [Required]
+       [Required]
         public  int? IdRole{get;set;}
 
 
