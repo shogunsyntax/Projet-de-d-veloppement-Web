@@ -46,7 +46,7 @@ public class AdminUtilisateurController : Controller
             ViewBag.Roles = _context.Role
                 .Select(r => new SelectListItem
                 {
-                    Value = r.RoleId.ToString(),
+                    Value = r.IdRole.ToString(),
                     Text = r.IntituleRole
                 }).ToList();
 
@@ -54,7 +54,7 @@ public class AdminUtilisateurController : Controller
             ViewBag.Localites = _context.Localite
                 .Select(l => new SelectListItem
                 {
-                    Value = l.LocaliteId.ToString(),
+                    Value = l.IdLocalite.ToString(),
                     Text = l.Intitule
                 }).ToList();
 
@@ -84,7 +84,7 @@ public class AdminUtilisateurController : Controller
                 utilisateur.Nom, utilisateur.Prenom, utilisateur.Email, utilisateur.IdRole, utilisateur.IdLocalite);
 
             // Vérifie si le rôle fourni existe en db
-            if (!_context.Role.Any(r => r.RoleId == utilisateur.IdRole))
+            if (!_context.Role.Any(r => r.IdRole == utilisateur.IdRole))
             {
                 _logger.LogWarning("Le rôle ID {IdRole} est invalide.", utilisateur.IdRole);
                 ModelState.AddModelError("IdRole", "Le rôle sélectionné est invalide.");
@@ -95,7 +95,7 @@ public class AdminUtilisateurController : Controller
             }
 
             // Vérifie si la localité fournie existe
-            if (!_context.Localite.Any(l => l.LocaliteId == utilisateur.IdLocalite))
+            if (!_context.Localite.Any(l => l.IdLocalite == utilisateur.IdLocalite))
             {
                 _logger.LogWarning("La localité ID {IdLocalite} est invalide.", utilisateur.IdLocalite);
                 ModelState.AddModelError("IdLocalite", "La localité sélectionnée est invalide.");
@@ -123,14 +123,14 @@ public class AdminUtilisateurController : Controller
                 ViewBag.Roles = _context.Role
                     .Select(r => new SelectListItem
                     {
-                        Value = r.RoleId.ToString(),
+                        Value = r.IdRole.ToString(),
                         Text = r.IntituleRole
                     }).ToList();
 
                 ViewBag.Localites = _context.Localite
                     .Select(l => new SelectListItem
                     {
-                        Value = l.LocaliteId.ToString(),
+                        Value = l.IdLocalite.ToString(),
                         Text = l.Intitule
                     }).ToList();
 
@@ -212,13 +212,13 @@ public IActionResult Edit(int id)
         // Remplissage des listes déroulantes
         Roles = _context.Role.Select(r => new SelectListItem
         {
-            Value = r.RoleId.ToString(),
+            Value = r.IdRole.ToString(),
             Text = r.IntituleRole
         }).ToList(),
 
         Localites = _context.Localite.Select(l => new SelectListItem
         {
-            Value = l.LocaliteId.ToString(),
+            Value = l.IdLocalite.ToString(),
             Text = l.Intitule
         }).ToList()
     };
@@ -242,13 +242,13 @@ public IActionResult Edit(int id, UtilisateurEditViewModel vm)
         _logger.LogWarning("Modèle invalide.");
         vm.Roles = _context.Role.Select(r => new SelectListItem
         {
-            Value = r.RoleId.ToString(),
+            Value = r.IdRole.ToString(),
             Text = r.IntituleRole
         }).ToList();
 
         vm.Localites = _context.Localite.Select(l => new SelectListItem
         {
-            Value = l.LocaliteId.ToString(),
+            Value = l.IdLocalite.ToString(),
             Text = l.Intitule
         }).ToList();
 
