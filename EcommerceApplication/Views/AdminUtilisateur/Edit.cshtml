@@ -14,21 +14,21 @@ en dur-->
 
 <!-- ----- Rôle ---- -->
 <div>
-    <!--L'attribut name="IdRole" est essentiel pour que la valeur soit envoyée lors du POST.
+    <!--L'attribut name="IdRole" est essentiel pour que la value soit envoyée lors du POST.
         id="IdRole" permet de lier visuellement le champ à son label -->
-    <label form="IdRole">Rôle</label>
+    <label for="IdRole">Rôle</label>
     <select id="IdRole">
          <!-- option vide pour forcer l'utilisateurs à faire une choix -->
-         <option valeur="">Sélectionnez un rôle</option>
+         <option value="">Sélectionnez un rôle</option>
          <!-- boucle qui parcourt tous les rôles grâce à nitre selectedListItem
          dans le model -->
          @foreach(var item in Model.Roles)
          {
-            // attribut value="@item.Value" donne à l'option une valeur, c'est ce qui
+            // attribut value="@item.Value" donne à l'option une value, c'est ce qui
             // est envoyé en DB.
             // Donc l'user voit "Administrateur","Gestionnaire"... l'app envoie 1,2,3 ..(id)
             // le selected: Si le rôle est celui que l'utilisateur a déjà alors marque cette option comme sélectionnée
-            <option valeur="@item.Value" @(item.Value == Model.IdRole?.ToString() ? "selected" : "")>
+            <option value="@item.Value" @(item.Value == Model.IdRole?.ToString() ? "selected" : "")>
                 @item.Text 
             </option>
 
@@ -53,7 +53,7 @@ en dur-->
 
 <!-- --Prénom -- -->
 <div>
-    <label form="Prenom">Prénom</label>
+    <label for="Prenom">Prénom</label>
     <input type="text" name="Prenom" id="Prenom" value="@Model.Prenom" class="form-control"/>
     <span class="text-danger">@Html.ValidationMessage("Prenom")</span>
 </div>
