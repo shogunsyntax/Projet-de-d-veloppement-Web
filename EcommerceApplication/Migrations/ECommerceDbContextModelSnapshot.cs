@@ -22,52 +22,74 @@ namespace EcommerceApplication.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Ajouter", b =>
                 {
-                    b.Property<int>("CategorieId")
+                    b.Property<int>("IdPanier")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("ProduitId")
+                    b.Property<int>("IdProduit")
                         .HasColumnType("int");
 
-                    b.HasKey("CategorieId", "ProduitId");
+                    b.Property<int>("Quantite")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProduitId");
+                    b.HasKey("IdPanier", "IdProduit");
+
+                    b.HasIndex("IdProduit");
+
+                    b.ToTable("Ajouter");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
+                {
+                    b.Property<int>("IdCategorie")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdProduit")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdCategorie", "IdProduit");
+
+                    b.HasIndex("IdProduit");
 
                     b.ToTable("Appartenir");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Categorie", b =>
                 {
-                    b.Property<int>("CategorieId")
+                    b.Property<int>("IdCategorie")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategorieId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategorie"));
 
                     b.Property<string>("NomCategorie")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("CategorieId");
+                    b.HasKey("IdCategorie");
 
                     b.ToTable("Categorie");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Commande", b =>
                 {
-                    b.Property<int>("CommandeId")
+                    b.Property<int>("IdCommande")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommandeId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCommande"));
 
                     b.Property<DateTime>("DateCommande")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PanierId")
+                    b.Property<int>("IdPanier")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUtilisateur")
                         .HasColumnType("int");
 
                     b.Property<string>("Statut")
@@ -77,65 +99,62 @@ namespace EcommerceApplication.Migrations
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UtilisateurId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UtilisateurIdUtilisateur")
                         .HasColumnType("int");
 
-                    b.HasKey("CommandeId");
+                    b.HasKey("IdCommande");
 
-                    b.HasIndex("PanierId");
+                    b.HasIndex("IdPanier");
 
-                    b.HasIndex("UtilisateurId");
+                    b.HasIndex("IdUtilisateur");
 
                     b.HasIndex("UtilisateurIdUtilisateur");
 
                     b.ToTable("Commande");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.CommandeProduit", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Contenir", b =>
                 {
-                    b.Property<int>("CommandeId")
+                    b.Property<int>("IdCommande")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("ProduitId")
+                    b.Property<int>("IdProduit")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantite")
                         .HasColumnType("int");
 
-                    b.HasKey("CommandeId", "ProduitId");
+                    b.HasKey("IdCommande", "IdProduit");
 
-                    b.HasIndex("ProduitId");
+                    b.HasIndex("IdProduit");
 
                     b.ToTable("Contenir");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Detenir", b =>
                 {
-                    b.Property<int>("PermissionId")
+                    b.Property<int>("IdPermission")
                         .HasColumnType("int");
 
-                    b.Property<int>("RoleId")
+                    b.Property<int>("IdRole")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.HasKey("PermissionId", "RoleId");
+                    b.HasKey("IdPermission", "IdRole");
 
-                    b.HasIndex("RoleId");
+                    b.HasIndex("IdRole");
 
                     b.ToTable("Detenir");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Localite", b =>
                 {
-                    b.Property<int>("LocaliteId")
+                    b.Property<int>("IdLocalite")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LocaliteId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdLocalite"));
 
                     b.Property<int>("CodePostal")
                         .HasColumnType("int");
@@ -148,63 +167,44 @@ namespace EcommerceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("LocaliteId");
+                    b.HasKey("IdLocalite");
 
                     b.ToTable("Localite");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Panier", b =>
                 {
-                    b.Property<int>("PanierId")
+                    b.Property<int>("IdPanier")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PanierId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPanier"));
 
                     b.Property<DateTime>("DatePanier")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UtilisateurId")
+                    b.Property<int?>("IdUtilisateur")
                         .HasColumnType("int");
 
                     b.Property<int?>("UtilisateurIdUtilisateur")
                         .HasColumnType("int");
 
-                    b.HasKey("PanierId");
+                    b.HasKey("IdPanier");
 
-                    b.HasIndex("UtilisateurId");
+                    b.HasIndex("IdUtilisateur");
 
                     b.HasIndex("UtilisateurIdUtilisateur");
 
                     b.ToTable("Panier");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.PanierProduit", b =>
-                {
-                    b.Property<int>("PanierId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProduitId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantite")
-                        .HasColumnType("int");
-
-                    b.HasKey("PanierId", "ProduitId");
-
-                    b.HasIndex("ProduitId");
-
-                    b.ToTable("Ajouter");
-                });
-
             modelBuilder.Entity("EcommerceApplication.Models.Permission", b =>
                 {
-                    b.Property<int>("PermissionId")
+                    b.Property<int>("IdPermission")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PermissionId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPermission"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -214,7 +214,7 @@ namespace EcommerceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PermissionId");
+                    b.HasKey("IdPermission");
 
                     b.ToTable("Permission");
                 });
@@ -227,14 +227,21 @@ namespace EcommerceApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdProduit"));
 
-                    b.Property<int>("CategorieId")
-                        .HasMaxLength(50)
+                    b.Property<int>("CategorieIdCategorie")
                         .HasColumnType("int");
 
                     b.Property<string>("DescriptionProduit")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("IdCategorie")
+                        .HasMaxLength(50)
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTVA")
+                        .HasMaxLength(50)
+                        .HasColumnType("int");
 
                     b.Property<string>("Image")
                         .IsRequired()
@@ -251,26 +258,22 @@ namespace EcommerceApplication.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("int");
 
-                    b.Property<int>("TvaId")
-                        .HasMaxLength(50)
-                        .HasColumnType("int");
-
                     b.HasKey("IdProduit");
 
-                    b.HasIndex("CategorieId");
+                    b.HasIndex("CategorieIdCategorie");
 
-                    b.HasIndex("TvaId");
+                    b.HasIndex("IdTVA");
 
                     b.ToTable("Produit");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.Role", b =>
                 {
-                    b.Property<int>("RoleId")
+                    b.Property<int>("IdRole")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRole"));
 
                     b.Property<string>("DetailRole")
                         .IsRequired()
@@ -280,18 +283,18 @@ namespace EcommerceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("RoleId");
+                    b.HasKey("IdRole");
 
                     b.ToTable("Role");
                 });
 
             modelBuilder.Entity("EcommerceApplication.Models.TVA", b =>
                 {
-                    b.Property<int>("TvaId")
+                    b.Property<int>("IdTVA")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TvaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTVA"));
 
                     b.Property<int>("TauxTva")
                         .HasColumnType("int");
@@ -300,7 +303,7 @@ namespace EcommerceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TvaId");
+                    b.HasKey("IdTVA");
 
                     b.ToTable("TVA");
                 });
@@ -351,17 +354,36 @@ namespace EcommerceApplication.Migrations
                     b.ToTable("Utilisateur");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Ajouter", b =>
                 {
-                    b.HasOne("EcommerceApplication.Models.Categorie", "Categorie")
+                    b.HasOne("EcommerceApplication.Models.Panier", "Panier")
                         .WithMany()
-                        .HasForeignKey("CategorieId")
+                        .HasForeignKey("IdPanier")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Produit", "Produit")
                         .WithMany()
-                        .HasForeignKey("ProduitId")
+                        .HasForeignKey("IdProduit")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Panier");
+
+                    b.Navigation("Produit");
+                });
+
+            modelBuilder.Entity("EcommerceApplication.Models.Appartenir", b =>
+                {
+                    b.HasOne("EcommerceApplication.Models.Categorie", "Categorie")
+                        .WithMany()
+                        .HasForeignKey("IdCategorie")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceApplication.Models.Produit", "Produit")
+                        .WithMany()
+                        .HasForeignKey("IdProduit")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -374,13 +396,13 @@ namespace EcommerceApplication.Migrations
                 {
                     b.HasOne("EcommerceApplication.Models.Panier", null)
                         .WithMany()
-                        .HasForeignKey("PanierId")
+                        .HasForeignKey("IdPanier")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Utilisateur", null)
                         .WithMany()
-                        .HasForeignKey("UtilisateurId")
+                        .HasForeignKey("IdUtilisateur")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -391,18 +413,18 @@ namespace EcommerceApplication.Migrations
                     b.Navigation("Utilisateur");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.CommandeProduit", b =>
+            modelBuilder.Entity("EcommerceApplication.Models.Contenir", b =>
                 {
                     b.HasOne("EcommerceApplication.Models.Commande", "Commande")
                         .WithMany()
-                        .HasForeignKey("CommandeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdCommande")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Produit", "Produit")
                         .WithMany()
-                        .HasForeignKey("ProduitId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdProduit")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Commande");
@@ -414,14 +436,14 @@ namespace EcommerceApplication.Migrations
                 {
                     b.HasOne("EcommerceApplication.Models.Permission", "Permission")
                         .WithMany()
-                        .HasForeignKey("PermissionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdPermission")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Role", "Role")
                         .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdRole")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Permission");
@@ -433,7 +455,7 @@ namespace EcommerceApplication.Migrations
                 {
                     b.HasOne("EcommerceApplication.Models.Utilisateur", null)
                         .WithMany()
-                        .HasForeignKey("UtilisateurId")
+                        .HasForeignKey("IdUtilisateur")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("EcommerceApplication.Models.Utilisateur", "Utilisateur")
@@ -443,37 +465,18 @@ namespace EcommerceApplication.Migrations
                     b.Navigation("Utilisateur");
                 });
 
-            modelBuilder.Entity("EcommerceApplication.Models.PanierProduit", b =>
-                {
-                    b.HasOne("EcommerceApplication.Models.Panier", "Panier")
-                        .WithMany()
-                        .HasForeignKey("PanierId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EcommerceApplication.Models.Produit", "Produit")
-                        .WithMany()
-                        .HasForeignKey("ProduitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Panier");
-
-                    b.Navigation("Produit");
-                });
-
             modelBuilder.Entity("EcommerceApplication.Models.Produit", b =>
                 {
                     b.HasOne("EcommerceApplication.Models.Categorie", "Categorie")
                         .WithMany()
-                        .HasForeignKey("CategorieId")
+                        .HasForeignKey("CategorieIdCategorie")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.TVA", null)
                         .WithMany()
-                        .HasForeignKey("TvaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdTVA")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Categorie");
@@ -484,13 +487,13 @@ namespace EcommerceApplication.Migrations
                     b.HasOne("EcommerceApplication.Models.Localite", "Localite")
                         .WithMany("Utilisateur")
                         .HasForeignKey("IdLocalite")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("EcommerceApplication.Models.Role", "Role")
                         .WithMany("Utilisateur")
                         .HasForeignKey("IdRole")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Localite");
