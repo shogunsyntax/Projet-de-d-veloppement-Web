@@ -1,44 +1,87 @@
 @model EcommerceApplication.Models.ViewModels.UtilisateurEditViewModel
 
+@{
+    ViewData["Title"] = "Modifier un utilisateur";
+}
+
 <h2>Modifier un utilisateur</h2>
 
-<form method="post" asp-action="Edit">
-    <div>
-        <label>Nom</label>
-        <input type="text" asp-for="Nom" name="Nom" value="@Model.Nom" required>
-        <span asp-validation-for="Nom" class="text-danger"></span>
-    </div>
+<!-- Formulaire de modification, je passe par l'attribut action pour lui passer l'url
+en dur-->
 
-     <div>
-        <label>Prénom</label>
-        <input type="text" asp-for="Prenom" name="Prenom" value="@Model.Prenom" required>
-        <span asp-validation-for="Prenom" class="text-danger"></span>
-    </div>
+<form method="post" action="/admin/utilisateurs/edit/@Model.IdUtilisateur">
+@Html.AntiForgeryToken()
 
-     <div>
-        <label>Email</label>
-        <input type="text" asp-for="Email" name="Email" value="@Model.Email" required>
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
+<!-- ----- Rôle ---- -->
+<div>
+    <!--L'attribut name="IdRole" est essentiel pour que la valeur soit envoyée lors du POST.
+        id="IdRole" permet de lier visuellement le champ à son label -->
+    <label form="IdRole">Rôle</label>
+    <select id="IdRole">
+         <!-- option vide pour forcer l'utilisateurs à faire une choix -->
+         <option valeur="">Sélectionnez un rôle</option>
+         <!-- boucle qui parcourt tous les rôles grâce à nitre selectedListItem
+         dans le model -->
+         @foreach(var item in Model.Roles)
+         {
+            // attribut value="@item.Value" donne à l'option une valeur, c'est ce qui
+            // est envoyé en DB.
+            // Donc l'user voit "Administrateur","Gestionnaire"... l'app envoie 1,2,3 ..(id)
+            // le selected: Si le rôle est celui que l'utilisateur a déjà alors marque cette option comme sélectionnée
+            <option valeur="@item.Value" @(item.Value == Model.IdRole?.ToString() ? "selected" : "")>
+                @item.Text 
+            </option>
 
-     <div>
-        <label>Mot de passe</label>
-        <input type="password" asp-for="MotDePasse" name="MotDePasse">
-        <span asp-validation-for="MotDePasse" class="text-danger"></span>
-    </div>
+         }
 
-     <div>
-        <label>Adresse</label>
-        <input type="text" asp-for="Adresse" name="Adresse" value="@Model.Adresse" required>
-        <span asp-validation-for="Adresse" class="text-danger"></span>
-    </div>
-     <div>
-        <label>Rôle</label>
-        <select asp-for="Role" name="Role">
-            <option value="Client" selected="@(Model.Role =="Client")">Client</option>
-            <option value="Admin" selected="@(Model.Role == "Admin")">Admin</option>
-        </select>
-        <span asp-validation-for="Role" class="text-danger"></span>
-    </div>
-    <button type="submit">Mettre à jour</button>
+    </select>
+    <span class="text-danger">@Html.ValidationMessage("IdRole")</span>
+</div>
+<!-- ----- Localité ------>
+<div>
+    <label for="IdLocalite">Localité</label>
+    <select id="IdLocalite" name="IdLocalite" class="form-control">
+        @foreach(var item in Model.Localites){ 
+        <option value="@item.Value" @(item.Value == Model.IdLocalite?.ToString() ? "selected ":"")>
+            @item.Text
+        </option>
+        }
+       
+    </select>
+    <span class="text-danger">@Html.ValidationMessage("IdLocalite")</span>
+</div>
+
+<!-- --Prénom -- -->
+<div>
+    <label form="Prenom">Prénom</label>
+    <input type="text" name="Prenom" id="Prenom" value="@Model.Prenom" class="form-control"/>
+    <span class="text-danger">@Html.ValidationMessage("Prenom")</span>
+</div>
+
+<!-- ----- ADRESSE ----- -->
+<div>
+    <label for="Adresse"></label>
+    <input type="text" name="Adresse" id="Adresse" value="@Model.Adresse" class="form-control"/>
+    <span class="text-danger">@Html.ValidationMessage("Adresse")</span>
+</div>
+
+<!-- ----- EMAIL ----- -->
+<div>
+    <label for="Email">Adresse mail</label>
+    <input type="email" name="Email" id="Email" value="@Model.Email" class="form-control"/>
+    <span class="text-danger">@Html.ValidationMessage("Email")</span>
+</div>
+
+<!-- ----- MOT DE PASSE ----- -->
+ <div>
+        <label for="MotDePasse">Mot de passe (laisser vide pour ne pas changer)</label>
+        <input type="password" name="MotDePasse" id="MotDePasse" class="form-control" autocomplete="new-password" />
+        <span class="text-danger">@Html.ValidationMessage("MotDePasse")</span>
+</div>
+
+<!-- ----- BOUTON ----- -->
+<button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
 </form>
+
+<!-- Lien retour -->
+<p><a href="/admin/utilisateurs/list">Retour à la liste </a></p>
