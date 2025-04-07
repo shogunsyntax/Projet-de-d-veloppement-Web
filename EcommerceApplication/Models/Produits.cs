@@ -12,7 +12,7 @@ namespace EcommerceApplication.Models
         [Required(ErrorMessage = "Le nom du produit est obligatoire.")]
         [StringLength(50, ErrorMessage = "Le nom du produit ne peut pas dépasser 50 caractères.")]
 
-        public required int TvaId{get;set;}
+        public required int IdTVA{get;set;}
         public required string NomProduit { get; set; }
         [Required(ErrorMessage = "La description du produit est obligatoire.")]
         [StringLength(50, ErrorMessage = "La description du produit ne peut pas dépasser 50 caractères.")]
@@ -29,7 +29,7 @@ namespace EcommerceApplication.Models
         [Required(ErrorMessage = "La categorie est obligatoire.")]
         [Range(0, int.MaxValue, ErrorMessage = "Entrer un nombre valide")]
         [StringLength(50, ErrorMessage = "La categorie n'est pas valide.")]
-        public  int CategorieId { get; set; }
+        public  int IdCategorie { get; set; }
         [Required(ErrorMessage = "La categorie est obligatoire.")]
         
         public  Categorie? Categorie { get; set; }
