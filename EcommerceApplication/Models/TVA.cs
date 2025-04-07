@@ -6,7 +6,7 @@ namespace EcommerceApplication.Models{
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public required int TvaId { get; set; }
+    public required int IdTVA { get; set; }
     public required int TauxTva {get;set;}
 
     public required string TypeProduitTva{get;set;}
