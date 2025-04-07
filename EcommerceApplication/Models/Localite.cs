@@ -6,7 +6,7 @@ namespace EcommerceApplication.Models{
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public  int? LocaliteId { get; set; }
+    public  int? IdLocalite { get; set; }
 
     public required string NomLocalite{get; set;}
 
