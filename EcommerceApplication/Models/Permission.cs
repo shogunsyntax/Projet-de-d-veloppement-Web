@@ -6,7 +6,7 @@ namespace EcommerceApplication.Models{
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public  int? PermissionId { get; set; }
+    public  int? IdPermission { get; set; }
 
     public required string Intitule{get;set;}
 
