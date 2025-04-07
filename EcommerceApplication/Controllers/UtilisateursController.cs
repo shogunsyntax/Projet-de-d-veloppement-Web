@@ -224,7 +224,7 @@ public IActionResult Edit(int id)
     };
 
     // Étape 4 : Log pour valider le contenu du ViewModel
-    _logger.LogInformation("ViewModel prêt à être envoyé à la vue. Nom : {Nom}, Email : {Email}", vm.Nom, vm.Email);
+    _logger.LogInformation("ViewModel prêt à être envoyé à la vue. Nom : {Nom}, Email : {Email},IdRole :{IdRole},IdLocalite:{IdLocalite}", vm.Nom, vm.Email,vm.IdRole,vm.IdLocalite);
 
     // Étape 5 : Affichage de la vue
     return View(vm);
