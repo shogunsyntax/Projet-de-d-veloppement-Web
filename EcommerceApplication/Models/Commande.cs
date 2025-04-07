@@ -6,10 +6,10 @@ namespace EcommerceApplication.Models{
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]   
-    public int CommandeId { get; set; }
+    public int IdCommande { get; set; }
 
-    public  int PanierId{get;set;}
-    public int UtilisateurId { get; set; }
+    public  int IdPanier{get;set;}
+    public int IdUtilisateur { get; set; }
     public  Utilisateur? Utilisateur { get; set; }
     public required DateTime DateCommande { get; set; } 
     public required decimal Total { get; set; }
