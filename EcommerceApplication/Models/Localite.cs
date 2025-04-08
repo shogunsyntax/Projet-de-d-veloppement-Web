@@ -15,6 +15,6 @@ namespace EcommerceApplication.Models{
 
     public required string Intitule{get;set;}
 
-     public ICollection<Utilisateur> Utilisateur{get;set;} = new List<Utilisateur>();
+    public ICollection<Utilisateur> Utilisateur{get;set;} = new List<Utilisateur>();
 }
 }
