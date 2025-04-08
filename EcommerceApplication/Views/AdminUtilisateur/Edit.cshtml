@@ -17,7 +17,7 @@ en dur-->
     <!--L'attribut name="IdRole" est essentiel pour que la value soit envoyée lors du POST.
         id="IdRole" permet de lier visuellement le champ à son label -->
     <label for="IdRole">Rôle</label>
-    <select id="IdRole">
+    <select id="IdRole" name="IdRole">
          <!-- option vide pour forcer l'utilisateurs à faire une choix -->
          <option value="">Sélectionnez un rôle</option>
          <!-- boucle qui parcourt tous les rôles grâce à nitre selectedListItem
@@ -51,6 +51,13 @@ en dur-->
     <span class="text-danger">@Html.ValidationMessage("IdLocalite")</span>
 </div>
 
+
+<!-- --Nom-- -->
+<div>
+    <label for="Nom">Nom</label>
+    <input type="text" name="Nom" id="Nom" value="@Model.Nom" class="form-control"/>
+    <span class="text-danger">@Html.ValidationMessage("Nom")</span>
+</div>
 <!-- --Prénom -- -->
 <div>
     <label for="Prenom">Prénom</label>
