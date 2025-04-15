@@ -17,7 +17,12 @@ namespace ItFormationCentre.Models
 
         public string? StatutPaiement { get; set; }
 
-        public int IdPanier { get; set; }
-        public Panier? Panier { get; set; }
+        [ForeignKey("Inscription")]
+        public int IdInscription { get; set; }
+        public Inscription? Inscription { get; set; }
+
+        public int IdPanier{ get; set; }
+        public Panier? Panier { get; set; } 
+
     }
 }
