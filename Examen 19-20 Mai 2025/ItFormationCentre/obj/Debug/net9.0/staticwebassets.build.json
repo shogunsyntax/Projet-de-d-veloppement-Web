@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zgrM+tgj7t2uOXJ6DQymEo11gD6pF8qr/PnBrNgLmPo=",
+  "Hash": "dcDYeyn7I1GQRDyJJ8MNB3smijU30yXOryw0nrIply8=",
   "Source": "ItFormationCentre",
   "BasePath": "_content/ItFormationCentre",
   "Mode": "Default",
@@ -794,12 +794,12 @@
       "OriginalItemSpec": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-b9sayid5wm.gz",
+      "Identity": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-mh4zefqudq.gz",
       "SourceId": "ItFormationCentre",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/ItFormationCentre",
-      "RelativePath": "css/site#[.{fingerprint=b9sayid5wm}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=mh4zefqudq}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -808,8 +808,8 @@
       "RelatedAsset": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "0suozzrugb",
-      "Integrity": "0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=",
+      "Fingerprint": "r14yvr0qh3",
+      "Integrity": "AWxu2JNrZS680xPvNmYusbvxrcvc+Y86e0F/aDQhqWc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\site.css"
@@ -1319,6 +1319,27 @@
       "OriginalItemSpec": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
+      "Identity": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\yzi309lgcx-97m2b9t5lx.gz",
+      "SourceId": "ItFormationCentre",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/ItFormationCentre",
+      "RelativePath": "css/output#[.{fingerprint=97m2b9t5lx}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\output.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "gq8vg7c2f2",
+      "Integrity": "CPZsjxoa3yCX1QOwESjJSbO3wkS1f3hQZfmk4STIbEA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\output.css"
+    },
+    {
       "Identity": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\zlgqtw4qqi-6pdc2jztkx.gz",
       "SourceId": "ItFormationCentre",
       "SourceType": "Discovered",
@@ -1403,6 +1424,27 @@
       "OriginalItemSpec": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\ItFormationCentre.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\output.css",
+      "SourceId": "ItFormationCentre",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\",
+      "BasePath": "_content/ItFormationCentre",
+      "RelativePath": "css/output#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "97m2b9t5lx",
+      "Integrity": "5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\output.css"
+    },
+    {
       "Identity": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\site.css",
       "SourceId": "ItFormationCentre",
       "SourceType": "Discovered",
@@ -1417,8 +1459,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9sayid5wm",
-      "Integrity": "j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=",
+      "Fingerprint": "mh4zefqudq",
+      "Integrity": "eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -2728,13 +2770,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.b9sayid5wm.css",
-      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-b9sayid5wm.gz",
+      "Route": "css/output.97m2b9t5lx.css",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\yzi309lgcx-97m2b9t5lx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003134796238"
+          "Quality": "0.000306560392"
         }
       ],
       "ResponseHeaders": [
@@ -2744,15 +2786,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "318"
+          "Value": "3261"
         },
         {
           "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
+          "Value": "\"CPZsjxoa3yCX1QOwESjJSbO3wkS1f3hQZfmk4STIbEA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 07 Apr 2025 19:52:10 GMT"
+          "Value": "Tue, 15 Apr 2025 15:51:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2772,26 +2814,316 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "97m2b9t5lx"
         },
         {
           "Name": "label",
-          "Value": "css/site.css"
+          "Value": "css/output.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css",
+      "Route": "css/output.97m2b9t5lx.css",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\output.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11433"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 15:51:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "97m2b9t5lx"
+        },
+        {
+          "Name": "label",
+          "Value": "css/output.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs="
+        }
+      ]
+    },
+    {
+      "Route": "css/output.97m2b9t5lx.css.gz",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\yzi309lgcx-97m2b9t5lx.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3261"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CPZsjxoa3yCX1QOwESjJSbO3wkS1f3hQZfmk4STIbEA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 15:51:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "97m2b9t5lx"
+        },
+        {
+          "Name": "label",
+          "Value": "css/output.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CPZsjxoa3yCX1QOwESjJSbO3wkS1f3hQZfmk4STIbEA="
+        }
+      ]
+    },
+    {
+      "Route": "css/output.css",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\yzi309lgcx-97m2b9t5lx.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000306560392"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3261"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CPZsjxoa3yCX1QOwESjJSbO3wkS1f3hQZfmk4STIbEA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 15:51:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs="
+        }
+      ]
+    },
+    {
+      "Route": "css/output.css",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\output.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11433"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 15:51:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5ZvAj1Fb1gh4s+4S3zCbgD1BuKG0V9h83nsJmrhvLrs="
+        }
+      ]
+    },
+    {
+      "Route": "css/output.css.gz",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\yzi309lgcx-97m2b9t5lx.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3261"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CPZsjxoa3yCX1QOwESjJSbO3wkS1f3hQZfmk4STIbEA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 15:51:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CPZsjxoa3yCX1QOwESjJSbO3wkS1f3hQZfmk4STIbEA="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-mh4zefqudq.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.016129032258"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "61"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AWxu2JNrZS680xPvNmYusbvxrcvc+Y86e0F/aDQhqWc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 18:22:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
       "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2801,7 +3133,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "62"
         },
         {
           "Name": "Content-Type",
@@ -2809,11 +3141,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 07 Apr 2025 19:52:10 GMT"
+          "Value": "Fri, 11 Apr 2025 18:22:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-mh4zefqudq.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "61"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AWxu2JNrZS680xPvNmYusbvxrcvc+Y86e0F/aDQhqWc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 18:22:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AWxu2JNrZS680xPvNmYusbvxrcvc+Y86e0F/aDQhqWc="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.mh4zefqudq.css",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-mh4zefqudq.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.016129032258"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "61"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AWxu2JNrZS680xPvNmYusbvxrcvc+Y86e0F/aDQhqWc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 18:22:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mh4zefqudq"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.mh4zefqudq.css",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "62"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 18:22:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2823,7 +3300,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "mh4zefqudq"
         },
         {
           "Name": "label",
@@ -2831,13 +3308,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-eosHg4ZhvtgkBfUZkaEBebp3gtfCrK/1R3e0nwILrnc="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css.gz",
-      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-b9sayid5wm.gz",
+      "Route": "css/site.mh4zefqudq.css.gz",
+      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-mh4zefqudq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2846,7 +3323,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "318"
+          "Value": "61"
         },
         {
           "Name": "Content-Type",
@@ -2854,11 +3331,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
+          "Value": "\"AWxu2JNrZS680xPvNmYusbvxrcvc+Y86e0F/aDQhqWc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 07 Apr 2025 19:52:10 GMT"
+          "Value": "Fri, 11 Apr 2025 18:22:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2876,7 +3353,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "mh4zefqudq"
         },
         {
           "Name": "label",
@@ -2884,144 +3361,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-b9sayid5wm.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.003134796238"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "318"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 07 Apr 2025 19:52:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "667"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 07 Apr 2025 19:52:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\Alexandre\\Desktop\\Bachelier Informatique Développement d'Applications\\2ème Année\\Projet de Développement WEB\\Examen 19-20 Mai 2025\\ItFormationCentre\\obj\\Debug\\net9.0\\compressed\\l7nzvr7h84-b9sayid5wm.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "318"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 07 Apr 2025 19:52:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y="
+          "Value": "sha256-AWxu2JNrZS680xPvNmYusbvxrcvc+Y86e0F/aDQhqWc="
         }
       ]
     },
@@ -3348,7 +3688,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3401,7 +3741,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3438,7 +3778,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3485,7 +3825,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3546,7 +3886,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3591,7 +3931,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3646,7 +3986,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3707,7 +4047,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3752,7 +4092,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3807,7 +4147,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3860,7 +4200,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3897,7 +4237,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 17:33:16 GMT"
+          "Value": "Mon, 14 Apr 2025 18:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
