@@ -6,7 +6,10 @@ namespace ItFormationCentre.Models
     public class Stagiaire : Utilisateur
     {
         [Required]
-        public string Niveau { get; set; }
+        public string CarteEtudiant { get; set; }
+
+        public ICollection<Evaluation> Evaluations { get; set; }
+
 
        
     }
