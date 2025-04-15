@@ -22,5 +22,7 @@ namespace ItFormationCentre.Models
 
         // Liste des utilisateurs habitant dans cette localité
         public ICollection<Utilisateur> Utilisateurs { get; set; }
+
+        public  ICollection<SessionFormation> SessionsFormation { get; set; }
     }
 }
