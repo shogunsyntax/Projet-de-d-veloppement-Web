@@ -6,14 +6,13 @@ namespace ItFormationCentre.Models
 {
     public class Permission
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdPermission { get; set; }
+      [Key]
+    public int IdPermission { get; set; }
 
-        [Required(ErrorMessage = "L'intitulé de la permission est obligatoire.")]
-        public required string IntitulePermission { get; set; }
+    [Required]
+    [StringLength(100)]
+    public string IntitulePermission { get; set; }
 
-        // Liste des rôles qui possèdent cette permission
-        public ICollection<Role> Roles { get; set; }
+    public ICollection<Detenir> Roles { get; set; }
     }
 }
