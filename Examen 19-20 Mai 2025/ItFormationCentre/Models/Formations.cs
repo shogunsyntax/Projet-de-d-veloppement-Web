@@ -22,6 +22,8 @@ namespace ItFormationCentre.Models
         public int Duree { get; set; } // en heures ou jours selon la convention
 
         // Liste des sessions de cette formation
-        public ICollection<SessionFormation> Sessions { get; set; }
+        public  ICollection<SessionFormation> SessionsFormation { get; set; } // Assurez-vous que cette propriété existe
+
+         public  ICollection<Ajouter> Paniers { get; set; }
     }
 }
