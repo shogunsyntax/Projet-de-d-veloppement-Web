@@ -18,7 +18,10 @@ namespace ItFormationCentre.Models
 
         public int IdSessionFormation { get; set; }
         public SessionFormation? SessionFormation { get; set; }
+        [ForeignKey("Stagiaire")]
         public int IdUtilisateur{ get; set; }
-        public Utilisateur? Utilisateur { get; set; }
+        public Stagiaire Stagiaire { get; set; }
+
+        
     }
 }
