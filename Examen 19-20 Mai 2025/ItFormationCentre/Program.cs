@@ -4,7 +4,8 @@ using ItFormationCentre.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddControllers(); // Ajoutez les contrôleurs
+builder.Services.AddRazorPages(); // Ajoutez Razor Pages
 
 // Configuration de la chaîne de connexion
 builder.Services.AddDbContext<ItFormationCentreDbContext>(options =>
@@ -16,23 +17,16 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-builder.Services.AddControllers();
-builder.Services.AddRazorPages();
-builder.Services.AddEndpointsApiExplorer();
-builder.Logging.AddFilter("Microsoft.EntityFrameworkCore.Database.Command",LogLevel.None);
-
 app.UseHttpsRedirection();
-
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseStaticFiles(); // Ajoutez cette ligne pour servir les fichiers statiques
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+// Configurez les points de terminaison
+app.MapControllers(); // Ajoutez cette ligne pour mapper les contrôleurs
+app.MapRazorPages(); // Ajoutez cette ligne pour mapper les Razor Pages
 
 app.Run();
