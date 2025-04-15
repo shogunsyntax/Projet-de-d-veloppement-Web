@@ -8,31 +8,23 @@ namespace ItFormationCentre.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdSessionFormation { get; set; }
+ [ForeignKey("Localite")]
+    public int IdLocalite { get; set; }
 
-        [Required]
-        public DateTime DateDebut { get; set; }
+    [ForeignKey("Formateur")]
+    public int IdUtilisateur { get; set; }
 
-        [Required]
-        public DateTime DateFin { get; set; }
+    [ForeignKey("Formation")]
+    public int IdFormation { get; set; }
 
-        public int NombreParticipant { get; set; }
+    public  Localite Localite { get; set; } 
+    public Formateur Formateur { get; set; } 
+    public  Formation Formation { get; set; } 
+    public  ICollection<Inscription> Inscriptions { get; set; }
+    public  ICollection<Plannifier> Heures { get; set; }
 
-        [Required]
-        public string StatusSession { get; set; }
+     public ICollection<Evaluation> Evaluations { get; set; }
 
-        // Clé étrangère vers la formation
-        public int IdFormation { get; set; }
-        public Formation? Formation { get; set; }
-
-        // Relation avec Heures
-        //public ICollection<Heure> Heures { get; set; }
-
-        // Relation avec les inscriptions
-        public ICollection<Inscription> Inscriptions { get; set; }
-
-        // Relation avec les évaluations
-        public ICollection<Evaluation> Evaluations { get; set; }
-
-        public ICollection<Localite> Localites{get;set;}
+     public ICollection<Local> Locaux { get; set; }
     }
 }
