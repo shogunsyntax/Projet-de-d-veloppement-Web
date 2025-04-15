@@ -9,11 +9,10 @@ namespace ItFormationCentre.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdHeure { get; set; }
 
-        [Required]
         public TimeSpan HeureDebut { get; set; }
-
-        [Required]
         public TimeSpan HeureFin { get; set; }
+
+        public  ICollection<Plannifier> SessionsFormation { get; set; }
 
     }
 }
