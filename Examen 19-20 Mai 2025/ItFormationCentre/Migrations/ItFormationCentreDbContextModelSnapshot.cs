@@ -22,16 +22,60 @@ namespace ItFormationCentre.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ItFormationCentre.Models.Adresse", b =>
+                {
+                    b.Property<int>("IdAdresse")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAdresse"));
+
+                    b.Property<int>("IdLocalite")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUtilisateur")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LocaliteIdLocalite")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Pays")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Rue")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("UtilisateurIdUtilisateur")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdAdresse");
+
+                    b.HasIndex("LocaliteIdLocalite");
+
+                    b.HasIndex("UtilisateurIdUtilisateur");
+
+                    b.ToTable("Adresse");
+                });
+
             modelBuilder.Entity("ItFormationCentre.Models.Ajouter", b =>
                 {
                     b.Property<int>("IdPanier")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("IdFormation")
                         .HasColumnType("int");
 
-                    b.HasKey("IdPanier");
+                    b.Property<int>("IdAjouter")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAjouter"));
+
+                    b.HasKey("IdPanier", "IdFormation");
 
                     b.HasIndex("IdFormation");
 
@@ -47,11 +91,11 @@ namespace ItFormationCentre.Migrations
                     b.Property<int>("IdPermission")
                         .HasColumnType("int");
 
-                    b.HasKey("IdRole");
+                    b.HasKey("IdRole", "IdPermission");
 
                     b.HasIndex("IdPermission");
 
-                    b.ToTable("Detentions");
+                    b.ToTable("Detenirs");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Evaluation", b =>
@@ -63,21 +107,34 @@ namespace ItFormationCentre.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEvaluation"));
 
                     b.Property<string>("Commentaire")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateEvaluation")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("FormateurIdUtilisateur")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FormateurIdUtilisateur1")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdSessionFormation")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUtilisateur")
+                    b.Property<int>("IdUtilisateurFormateur")
                         .HasColumnType("int");
 
-                    b.Property<float>("Note")
-                        .HasColumnType("real");
+                    b.Property<int>("IdUtilisateurStagiaire")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Note")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("SessionFormationIdSessionFormation")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StagiaireIdUtilisateur")
                         .HasColumnType("int");
 
                     b.Property<int?>("UtilisateurIdUtilisateur")
@@ -85,11 +142,23 @@ namespace ItFormationCentre.Migrations
 
                     b.HasKey("IdEvaluation");
 
+                    b.HasIndex("FormateurIdUtilisateur");
+
+                    b.HasIndex("FormateurIdUtilisateur1");
+
+                    b.HasIndex("IdSessionFormation");
+
+                    b.HasIndex("IdUtilisateurFormateur");
+
+                    b.HasIndex("IdUtilisateurStagiaire");
+
                     b.HasIndex("SessionFormationIdSessionFormation");
+
+                    b.HasIndex("StagiaireIdUtilisateur");
 
                     b.HasIndex("UtilisateurIdUtilisateur");
 
-                    b.ToTable("Evaluation");
+                    b.ToTable("Evaluations");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Formation", b =>
@@ -154,22 +223,46 @@ namespace ItFormationCentre.Migrations
                     b.Property<int>("IdUtilisateur")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SessionFormationIdSessionFormation")
-                        .HasColumnType("int");
-
                     b.Property<string>("Statut")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UtilisateurIdUtilisateur")
+                    b.HasKey("IdInscription");
+
+                    b.HasIndex("IdSessionFormation");
+
+                    b.HasIndex("IdUtilisateur");
+
+                    b.ToTable("Inscriptions");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Local", b =>
+                {
+                    b.Property<int>("IdLocal")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.HasKey("IdInscription");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdLocal"));
+
+                    b.Property<int>("Capacite")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Disponibilite")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NumeroLocal")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("SessionFormationIdSessionFormation")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdLocal");
 
                     b.HasIndex("SessionFormationIdSessionFormation");
 
-                    b.HasIndex("UtilisateurIdUtilisateur");
-
-                    b.ToTable("Inscription");
+                    b.ToTable("Local");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Localite", b =>
@@ -190,14 +283,44 @@ namespace ItFormationCentre.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("SessionFormationIdSessionFormation")
-                        .HasColumnType("int");
-
                     b.HasKey("IdLocalite");
 
-                    b.HasIndex("SessionFormationIdSessionFormation");
-
                     b.ToTable("Localites");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Paiement", b =>
+                {
+                    b.Property<int>("IdPaiement")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPaiement"));
+
+                    b.Property<DateTime>("DatePaiement")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdInscription")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdPanier")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Montant")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("StatutPaiement")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypePaiement")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdPaiement");
+
+                    b.HasIndex("IdInscription");
+
+                    b.HasIndex("IdPanier");
+
+                    b.ToTable("Paiements");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Panier", b =>
@@ -217,6 +340,9 @@ namespace ItFormationCentre.Migrations
                     b.Property<DateTime?>("DateValidation")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IdPaiement")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdUtilisateur")
                         .HasColumnType("int");
 
@@ -225,6 +351,9 @@ namespace ItFormationCentre.Migrations
 
                     b.Property<decimal>("NetAPayer")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("PaiementIdPaiement")
+                        .HasColumnType("int");
 
                     b.Property<decimal?>("Reduction")
                         .HasColumnType("decimal(18,2)");
@@ -238,12 +367,11 @@ namespace ItFormationCentre.Migrations
                     b.Property<decimal>("Tva")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("UtilisateurIdUtilisateur")
-                        .HasColumnType("int");
-
                     b.HasKey("IdPanier");
 
-                    b.HasIndex("UtilisateurIdUtilisateur");
+                    b.HasIndex("IdUtilisateur");
+
+                    b.HasIndex("PaiementIdPaiement");
 
                     b.ToTable("Paniers");
                 });
@@ -258,14 +386,15 @@ namespace ItFormationCentre.Migrations
 
                     b.Property<string>("IntitulePermission")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("IdPermission");
 
                     b.ToTable("Permissions");
                 });
 
-            modelBuilder.Entity("ItFormationCentre.Models.Planifier", b =>
+            modelBuilder.Entity("ItFormationCentre.Models.Plannifier", b =>
                 {
                     b.Property<int>("IdSessionFormation")
                         .ValueGeneratedOnAdd()
@@ -274,11 +403,11 @@ namespace ItFormationCentre.Migrations
                     b.Property<int>("IdHeure")
                         .HasColumnType("int");
 
-                    b.HasKey("IdSessionFormation");
+                    b.HasKey("IdSessionFormation", "IdHeure");
 
                     b.HasIndex("IdHeure");
 
-                    b.ToTable("Planifications");
+                    b.ToTable("Plannifier");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Role", b =>
@@ -307,30 +436,29 @@ namespace ItFormationCentre.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdSessionFormation"));
 
-                    b.Property<DateTime>("DateDebut")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateFin")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("FormationIdFormation")
+                    b.Property<int?>("FormateurIdUtilisateur")
                         .HasColumnType("int");
 
                     b.Property<int>("IdFormation")
                         .HasColumnType("int");
 
-                    b.Property<int>("NombreParticipant")
+                    b.Property<int>("IdLocalite")
                         .HasColumnType("int");
 
-                    b.Property<string>("StatusSession")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IdUtilisateur")
+                        .HasColumnType("int");
 
                     b.HasKey("IdSessionFormation");
 
-                    b.HasIndex("FormationIdFormation");
+                    b.HasIndex("FormateurIdUtilisateur");
 
-                    b.ToTable("SessionFormations");
+                    b.HasIndex("IdFormation");
+
+                    b.HasIndex("IdLocalite");
+
+                    b.HasIndex("IdUtilisateur");
+
+                    b.ToTable("SessionsAnimees");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Utilisateur", b =>
@@ -341,14 +469,22 @@ namespace ItFormationCentre.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUtilisateur"));
 
-                    b.Property<string>("Adresse")
+                    b.Property<string>("Diplome")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdAdresse")
+                        .HasMaxLength(250)
+                        .HasColumnType("int");
 
                     b.Property<int>("IdLocalite")
                         .HasColumnType("int");
@@ -356,17 +492,15 @@ namespace ItFormationCentre.Migrations
                     b.Property<int>("IdRole")
                         .HasColumnType("int");
 
-                    b.Property<int?>("LocaliteIdLocalite")
-                        .HasColumnType("int");
-
                     b.Property<string>("MotDePasse")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Nom")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("NomUtilisateur")
                         .IsRequired()
@@ -375,11 +509,8 @@ namespace ItFormationCentre.Migrations
 
                     b.Property<string>("Prenom")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("RoleIdRole")
-                        .HasColumnType("int");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Telephone")
                         .IsRequired()
@@ -387,40 +518,71 @@ namespace ItFormationCentre.Migrations
 
                     b.HasKey("IdUtilisateur");
 
-                    b.HasIndex("LocaliteIdLocalite");
+                    b.HasIndex("IdAdresse");
 
-                    b.HasIndex("RoleIdRole");
+                    b.HasIndex("IdLocalite");
+
+                    b.HasIndex("IdRole");
 
                     b.ToTable("Utilisateurs");
+
+                    b.HasDiscriminator().HasValue("Utilisateur");
+
+                    b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("PermissionRole", b =>
+            modelBuilder.Entity("ItFormationCentre.Models.Formateur", b =>
                 {
-                    b.Property<int>("PermissionsIdPermission")
+                    b.HasBaseType("ItFormationCentre.Models.Utilisateur");
+
+                    b.Property<int>("Experience")
                         .HasColumnType("int");
 
-                    b.Property<int>("RolesIdRole")
-                        .HasColumnType("int");
+                    b.Property<string>("Specialite")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PermissionsIdPermission", "RolesIdRole");
+                    b.HasDiscriminator().HasValue("Formateur");
+                });
 
-                    b.HasIndex("RolesIdRole");
+            modelBuilder.Entity("ItFormationCentre.Models.Stagiaire", b =>
+                {
+                    b.HasBaseType("ItFormationCentre.Models.Utilisateur");
 
-                    b.ToTable("PermissionRole");
+                    b.Property<string>("CarteEtudiant")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Stagiaire");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Adresse", b =>
+                {
+                    b.HasOne("ItFormationCentre.Models.Localite", "Localite")
+                        .WithMany()
+                        .HasForeignKey("LocaliteIdLocalite");
+
+                    b.HasOne("ItFormationCentre.Models.Utilisateur", "Utilisateur")
+                        .WithMany()
+                        .HasForeignKey("UtilisateurIdUtilisateur");
+
+                    b.Navigation("Localite");
+
+                    b.Navigation("Utilisateur");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Ajouter", b =>
                 {
                     b.HasOne("ItFormationCentre.Models.Formation", "Formation")
-                        .WithMany()
+                        .WithMany("Paniers")
                         .HasForeignKey("IdFormation")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ItFormationCentre.Models.Panier", "Panier")
-                        .WithMany()
+                        .WithMany("Ajouts")
                         .HasForeignKey("IdPanier")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Formation");
@@ -431,15 +593,15 @@ namespace ItFormationCentre.Migrations
             modelBuilder.Entity("ItFormationCentre.Models.Detenir", b =>
                 {
                     b.HasOne("ItFormationCentre.Models.Permission", "Permission")
-                        .WithMany()
+                        .WithMany("Roles")
                         .HasForeignKey("IdPermission")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ItFormationCentre.Models.Role", "Role")
-                        .WithMany()
+                        .WithMany("Permissions")
                         .HasForeignKey("IdRole")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Permission");
@@ -449,62 +611,125 @@ namespace ItFormationCentre.Migrations
 
             modelBuilder.Entity("ItFormationCentre.Models.Evaluation", b =>
                 {
+                    b.HasOne("ItFormationCentre.Models.Formateur", null)
+                        .WithMany("Evaluations")
+                        .HasForeignKey("FormateurIdUtilisateur");
+
+                    b.HasOne("ItFormationCentre.Models.Formateur", null)
+                        .WithMany("EvaluationsStagiaire")
+                        .HasForeignKey("FormateurIdUtilisateur1");
+
                     b.HasOne("ItFormationCentre.Models.SessionFormation", "SessionFormation")
+                        .WithMany()
+                        .HasForeignKey("IdSessionFormation")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ItFormationCentre.Models.Formateur", "Formateur")
+                        .WithMany()
+                        .HasForeignKey("IdUtilisateurFormateur")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ItFormationCentre.Models.Stagiaire", "Stagiaire")
+                        .WithMany("EvaluationsStagiaire")
+                        .HasForeignKey("IdUtilisateurStagiaire")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ItFormationCentre.Models.SessionFormation", null)
                         .WithMany("Evaluations")
                         .HasForeignKey("SessionFormationIdSessionFormation");
 
-                    b.HasOne("ItFormationCentre.Models.Utilisateur", "Utilisateur")
+                    b.HasOne("ItFormationCentre.Models.Stagiaire", null)
                         .WithMany("Evaluations")
+                        .HasForeignKey("StagiaireIdUtilisateur");
+
+                    b.HasOne("ItFormationCentre.Models.Utilisateur", null)
+                        .WithMany("EvaluationsFormateur")
                         .HasForeignKey("UtilisateurIdUtilisateur");
+
+                    b.Navigation("Formateur");
 
                     b.Navigation("SessionFormation");
 
-                    b.Navigation("Utilisateur");
+                    b.Navigation("Stagiaire");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Inscription", b =>
                 {
                     b.HasOne("ItFormationCentre.Models.SessionFormation", "SessionFormation")
                         .WithMany("Inscriptions")
-                        .HasForeignKey("SessionFormationIdSessionFormation");
+                        .HasForeignKey("IdSessionFormation")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.HasOne("ItFormationCentre.Models.Utilisateur", "Utilisateur")
+                    b.HasOne("ItFormationCentre.Models.Stagiaire", "Stagiaire")
                         .WithMany()
-                        .HasForeignKey("UtilisateurIdUtilisateur");
+                        .HasForeignKey("IdUtilisateur")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("SessionFormation");
 
-                    b.Navigation("Utilisateur");
+                    b.Navigation("Stagiaire");
                 });
 
-            modelBuilder.Entity("ItFormationCentre.Models.Localite", b =>
+            modelBuilder.Entity("ItFormationCentre.Models.Local", b =>
                 {
                     b.HasOne("ItFormationCentre.Models.SessionFormation", null)
-                        .WithMany("Localites")
+                        .WithMany("Locaux")
                         .HasForeignKey("SessionFormationIdSessionFormation");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Paiement", b =>
+                {
+                    b.HasOne("ItFormationCentre.Models.Inscription", "Inscription")
+                        .WithMany()
+                        .HasForeignKey("IdInscription")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ItFormationCentre.Models.Panier", "Panier")
+                        .WithMany()
+                        .HasForeignKey("IdPanier")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Inscription");
+
+                    b.Navigation("Panier");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Panier", b =>
                 {
                     b.HasOne("ItFormationCentre.Models.Utilisateur", "Utilisateur")
-                        .WithMany("Paniers")
-                        .HasForeignKey("UtilisateurIdUtilisateur");
+                        .WithMany()
+                        .HasForeignKey("IdUtilisateur")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ItFormationCentre.Models.Paiement", "Paiement")
+                        .WithMany()
+                        .HasForeignKey("PaiementIdPaiement");
+
+                    b.Navigation("Paiement");
 
                     b.Navigation("Utilisateur");
                 });
 
-            modelBuilder.Entity("ItFormationCentre.Models.Planifier", b =>
+            modelBuilder.Entity("ItFormationCentre.Models.Plannifier", b =>
                 {
                     b.HasOne("ItFormationCentre.Models.Heure", "Heure")
-                        .WithMany()
+                        .WithMany("SessionsFormation")
                         .HasForeignKey("IdHeure")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ItFormationCentre.Models.SessionFormation", "SessionFormation")
-                        .WithMany()
+                        .WithMany("Heures")
                         .HasForeignKey("IdSessionFormation")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Heure");
@@ -514,55 +739,95 @@ namespace ItFormationCentre.Migrations
 
             modelBuilder.Entity("ItFormationCentre.Models.SessionFormation", b =>
                 {
+                    b.HasOne("ItFormationCentre.Models.Formateur", null)
+                        .WithMany("SessionsFormation")
+                        .HasForeignKey("FormateurIdUtilisateur");
+
                     b.HasOne("ItFormationCentre.Models.Formation", "Formation")
-                        .WithMany("Sessions")
-                        .HasForeignKey("FormationIdFormation");
+                        .WithMany("SessionsFormation")
+                        .HasForeignKey("IdFormation")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ItFormationCentre.Models.Localite", "Localite")
+                        .WithMany("SessionsFormation")
+                        .HasForeignKey("IdLocalite")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ItFormationCentre.Models.Formateur", "Formateur")
+                        .WithMany()
+                        .HasForeignKey("IdUtilisateur")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Formateur");
 
                     b.Navigation("Formation");
+
+                    b.Navigation("Localite");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Utilisateur", b =>
                 {
+                    b.HasOne("ItFormationCentre.Models.Adresse", "Adresse")
+                        .WithMany()
+                        .HasForeignKey("IdAdresse")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("ItFormationCentre.Models.Localite", "Localite")
                         .WithMany("Utilisateurs")
-                        .HasForeignKey("LocaliteIdLocalite");
+                        .HasForeignKey("IdLocalite")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("ItFormationCentre.Models.Role", "Role")
                         .WithMany("Utilisateurs")
-                        .HasForeignKey("RoleIdRole");
+                        .HasForeignKey("IdRole")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Adresse");
 
                     b.Navigation("Localite");
 
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("PermissionRole", b =>
-                {
-                    b.HasOne("ItFormationCentre.Models.Permission", null)
-                        .WithMany()
-                        .HasForeignKey("PermissionsIdPermission")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ItFormationCentre.Models.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RolesIdRole")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ItFormationCentre.Models.Formation", b =>
                 {
-                    b.Navigation("Sessions");
+                    b.Navigation("Paniers");
+
+                    b.Navigation("SessionsFormation");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Heure", b =>
+                {
+                    b.Navigation("SessionsFormation");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Localite", b =>
                 {
+                    b.Navigation("SessionsFormation");
+
                     b.Navigation("Utilisateurs");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Panier", b =>
+                {
+                    b.Navigation("Ajouts");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Permission", b =>
+                {
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Role", b =>
                 {
+                    b.Navigation("Permissions");
+
                     b.Navigation("Utilisateurs");
                 });
 
@@ -570,16 +835,32 @@ namespace ItFormationCentre.Migrations
                 {
                     b.Navigation("Evaluations");
 
+                    b.Navigation("Heures");
+
                     b.Navigation("Inscriptions");
 
-                    b.Navigation("Localites");
+                    b.Navigation("Locaux");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Utilisateur", b =>
                 {
+                    b.Navigation("EvaluationsFormateur");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Formateur", b =>
+                {
                     b.Navigation("Evaluations");
 
-                    b.Navigation("Paniers");
+                    b.Navigation("EvaluationsStagiaire");
+
+                    b.Navigation("SessionsFormation");
+                });
+
+            modelBuilder.Entity("ItFormationCentre.Models.Stagiaire", b =>
+                {
+                    b.Navigation("Evaluations");
+
+                    b.Navigation("EvaluationsStagiaire");
                 });
 #pragma warning restore 612, 618
         }
