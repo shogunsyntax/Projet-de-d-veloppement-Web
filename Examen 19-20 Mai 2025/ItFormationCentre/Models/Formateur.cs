@@ -11,7 +11,9 @@ namespace ItFormationCentre.Models
         [Range(0, 50)]
         public int Experience { get; set; }
 
-        public ICollection<SessionFormation> SessionsAnimees { get; set; }
+        public ICollection<SessionFormation> SessionsFormation { get; set; }
+
+        public ICollection<Evaluation> Evaluations { get; set; }
 
     }
 }
