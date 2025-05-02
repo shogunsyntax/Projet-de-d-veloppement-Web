@@ -1,0 +1,75 @@
+@using ItFormationCentre.Models
+@model IEnumerable<ItFormationCentre.Models.Utilisateur>
+
+@{
+    ViewData["Title"] = "Liste des utilisateurs"; 
+    Layout = "_Layout";
+}
+
+<div class="container mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Liste des utilisateurs</h2> 
+
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                <th class="py-3 px-6 text-left">ID</th>
+                <th class="py-3 px-6 text-left">Rôle</th>
+                <th class="py-3 px-6 text-left">Localité</th>
+                <th class="py-3 px-6 text-left">Nom</th>
+                <th class="py-3 px-6 text-left">Prénom</th>
+                <th class="py-3 px-6 text-left">Adresse</th>
+                <th class="py-3 px-6 text-left">Email</th>
+                <th class="py-3 px-6 text-left">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody class="text-gray-600 text-sm font-light">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var user in Model)
+                {
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">@user.IdUtilisateur</td>
+                        <td class="py-3 px-6 text-left">@user.Role?.IntituleRole</td>
+                        <td class="py-3 px-6 text-left">@user.Localite?.NomLocalite</td>
+                        <td class="py-3 px-6 text-left">@user.Nom</td>
+                        <td class="py-3 px-6 text-left">@user.Prenom</td>
+                        <td class="py-3 px-6 text-left">
+                            @if (user.Adresse != null)
+                            {
+                                <p>@user.Adresse.Rue</p>
+                                <p>@user.Adresse.Ville</p>
+                                <p>@user.Adresse.Pays</p>
+                            }
+                            else
+                            {
+                                <p>Aucune adresse disponible</p>
+                            }
+                        </td>
+                        <td class="py-3 px-6 text-left">@user.Email</td>
+                        <td class="py-3 px-6 text-left">
+                            <a href="/utilisateurs/edit/@user.IdUtilisateur" class="text-blue-500 hover:text-blue-700">Modifier</a>
+
+                            <form method="post" action="/utilisateurs/delete/@user.IdUtilisateur" style="display:inline;">
+                                @Html.AntiForgeryToken() 
+                                <button type="submit" class="text-red-500 hover:text-red-700" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+                                    Supprimer
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8" class="py-3 px-6 text-center">Aucun utilisateur trouvé.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p class="mt-4">
+        <a href="/utilisateurs/create" class="text-green-500 hover:text-green-700">Ajouter un nouvel utilisateur</a>
+    </p>
+</div>
