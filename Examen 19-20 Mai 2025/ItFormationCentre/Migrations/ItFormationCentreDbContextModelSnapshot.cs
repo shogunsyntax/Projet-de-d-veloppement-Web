@@ -33,12 +33,6 @@ namespace ItFormationCentre.Migrations
                     b.Property<int>("IdLocalite")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUtilisateur")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LocaliteIdLocalite")
-                        .HasColumnType("int");
-
                     b.Property<string>("Pays")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -49,16 +43,16 @@ namespace ItFormationCentre.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("UtilisateurIdUtilisateur")
-                        .HasColumnType("int");
+                    b.Property<string>("Ville")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IdAdresse");
 
-                    b.HasIndex("LocaliteIdLocalite");
+                    b.HasIndex("IdLocalite");
 
-                    b.HasIndex("UtilisateurIdUtilisateur");
-
-                    b.ToTable("Adresse");
+                    b.ToTable("Adresses");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Ajouter", b =>
@@ -95,7 +89,7 @@ namespace ItFormationCentre.Migrations
 
                     b.HasIndex("IdPermission");
 
-                    b.ToTable("Detenirs");
+                    b.ToTable("Detentions");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Evaluation", b =>
@@ -107,7 +101,6 @@ namespace ItFormationCentre.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEvaluation"));
 
                     b.Property<string>("Commentaire")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateEvaluation")
@@ -331,47 +324,18 @@ namespace ItFormationCentre.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPanier"));
 
-                    b.Property<string>("CodePromo")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("DateCreation")
                         .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateValidation")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("IdPaiement")
-                        .HasColumnType("int");
 
                     b.Property<int>("IdUtilisateur")
                         .HasColumnType("int");
 
-                    b.Property<string>("MethodePaiement")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("NetAPayer")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("PaiementIdPaiement")
-                        .HasColumnType("int");
-
-                    b.Property<decimal?>("Reduction")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Statut")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Tva")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("IdPanier");
 
                     b.HasIndex("IdUtilisateur");
-
-                    b.HasIndex("PaiementIdPaiement");
 
                     b.ToTable("Paniers");
                 });
@@ -407,7 +371,7 @@ namespace ItFormationCentre.Migrations
 
                     b.HasIndex("IdHeure");
 
-                    b.ToTable("Plannifier");
+                    b.ToTable("Plannifications");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Role", b =>
@@ -458,7 +422,7 @@ namespace ItFormationCentre.Migrations
 
                     b.HasIndex("IdUtilisateur");
 
-                    b.ToTable("SessionsAnimees");
+                    b.ToTable("SessionsFormation");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Utilisateur", b =>
@@ -473,17 +437,11 @@ namespace ItFormationCentre.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(13)
-                        .HasColumnType("nvarchar(13)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IdAdresse")
-                        .HasMaxLength(250)
                         .HasColumnType("int");
 
                     b.Property<int>("IdLocalite")
@@ -516,6 +474,11 @@ namespace ItFormationCentre.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserType")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
                     b.HasKey("IdUtilisateur");
 
                     b.HasIndex("IdAdresse");
@@ -524,9 +487,9 @@ namespace ItFormationCentre.Migrations
 
                     b.HasIndex("IdRole");
 
-                    b.ToTable("Utilisateurs");
+                    b.ToTable("Utilisateurs", (string)null);
 
-                    b.HasDiscriminator().HasValue("Utilisateur");
+                    b.HasDiscriminator<string>("UserType").HasValue("Utilisateur");
 
                     b.UseTphMappingStrategy();
                 });
@@ -535,11 +498,7 @@ namespace ItFormationCentre.Migrations
                 {
                     b.HasBaseType("ItFormationCentre.Models.Utilisateur");
 
-                    b.Property<int>("Experience")
-                        .HasColumnType("int");
-
                     b.Property<string>("Specialite")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Formateur");
@@ -560,15 +519,11 @@ namespace ItFormationCentre.Migrations
                 {
                     b.HasOne("ItFormationCentre.Models.Localite", "Localite")
                         .WithMany()
-                        .HasForeignKey("LocaliteIdLocalite");
-
-                    b.HasOne("ItFormationCentre.Models.Utilisateur", "Utilisateur")
-                        .WithMany()
-                        .HasForeignKey("UtilisateurIdUtilisateur");
+                        .HasForeignKey("IdLocalite")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Localite");
-
-                    b.Navigation("Utilisateur");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Ajouter", b =>
@@ -709,12 +664,6 @@ namespace ItFormationCentre.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ItFormationCentre.Models.Paiement", "Paiement")
-                        .WithMany()
-                        .HasForeignKey("PaiementIdPaiement");
-
-                    b.Navigation("Paiement");
-
                     b.Navigation("Utilisateur");
                 });
 
@@ -740,7 +689,7 @@ namespace ItFormationCentre.Migrations
             modelBuilder.Entity("ItFormationCentre.Models.SessionFormation", b =>
                 {
                     b.HasOne("ItFormationCentre.Models.Formateur", null)
-                        .WithMany("SessionsFormation")
+                        .WithMany("Sessions")
                         .HasForeignKey("FormateurIdUtilisateur");
 
                     b.HasOne("ItFormationCentre.Models.Formation", "Formation")
@@ -853,7 +802,7 @@ namespace ItFormationCentre.Migrations
 
                     b.Navigation("EvaluationsStagiaire");
 
-                    b.Navigation("SessionsFormation");
+                    b.Navigation("Sessions");
                 });
 
             modelBuilder.Entity("ItFormationCentre.Models.Stagiaire", b =>
