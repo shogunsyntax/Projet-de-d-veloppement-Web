@@ -11,6 +11,7 @@ C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\bin\Debug\net9.0\ItFormationCentre.pdb
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\bin\Debug\net9.0\Azure.Identity.dll
+C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\bin\Debug\net9.0\BCrypt.Net-Next.dll
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\bin\Debug\net9.0\Humanizer.dll
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -151,6 +152,7 @@ C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\scopedcss\bundle\ItFormationCentre.styles.css
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\scopedcss\projectbundle\ItFormationCentre.bundle.scp.css
+C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\compressed\yzi309lgcx-v9243dtza8.gz
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\compressed\l7nzvr7h84-mh4zefqudq.gz
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\compressed\7chvlt5fqq-61n19gt1b8.gz
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\compressed\hphifao306-xtxxf3hu2r.gz
@@ -230,4 +232,3 @@ C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\ItFormationCentre.pdb
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\ItFormationCentre.genruntimeconfig.cache
 C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\ref\ItFormationCentre.dll
-C:\Users\Alexandre\Desktop\Bachelier Informatique Développement d'Applications\2ème Année\Projet de Développement WEB\Examen 19-20 Mai 2025\ItFormationCentre\obj\Debug\net9.0\compressed\yzi309lgcx-97m2b9t5lx.gz
