@@ -20,7 +20,8 @@ namespace ItFormationCentre.Models
         [ForeignKey("Inscription")]
         public int IdInscription { get; set; }
         public Inscription? Inscription { get; set; }
-
+       
+        [ForeignKey("Panier")]
         public int IdPanier{ get; set; }
         public Panier? Panier { get; set; } 
 
