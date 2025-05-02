@@ -1,0 +1,149 @@
+@model ItFormationCentre.Models.ViewModels.UtilisateurEditViewModel
+
+@{
+    ViewData["Title"] = "Modifier un Utilisateur";
+    Layout = "_Layout";
+}
+
+<h1 class="text-2xl font-bold mb-4">@ViewData["Title"]</h1>
+
+<form asp-controller="Utilisateurs" asp-action="Edit" method="post" class="space-y-6 max-w-xl mx-auto bg-white p-6 rounded-2xl shadow" onsubmit="return validateForm()">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="IdUtilisateur" />
+
+    <div>
+        <label asp-for="Nom">Nom :</label>
+        <input asp-for="Nom" name="Nom" id="Nom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Nom" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="Prenom">Prénom :</label>
+        <input asp-for="Prenom" name="Prenom" id="Prenom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Prenom" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="NomUtilisateur">Nom d'utilisateur :</label>
+        <input asp-for="NomUtilisateur" name="NomUtilisateur" id="NomUtilisateur" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="NomUtilisateur" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email">Email :</label>
+        <input asp-for="Email" name="Email" id="Email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="MotDePasse">Nouveau mot de passe (laisser vide si inchangé) :</label>
+        <input asp-for="MotDePasse" name="MotDePasse" id="MotDePasse" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="MotDePasse" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="Telephone">Téléphone :</label>
+        <input asp-for="Telephone" name="Telephone" id="Telephone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Telephone" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="Diplome">Diplôme :</label>
+        <input asp-for="Diplome" name="Diplome" id="Diplome" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Diplome" class="text-red-500 text-sm"></span>
+    </div>
+
+   <div>
+    <label asp-for="IdRole">Rôle :</label>
+    <select name="IdRole" id="IdRole" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        <option value="">-- Sélectionnez un rôle --</option>
+        @foreach (var role in Model.Roles)
+        {
+            <option value="@role.Value" @(role.Value == Model.IdRole.ToString() ? "selected" : "")>@role.Text</option>
+        }
+    </select>
+    <span asp-validation-for="IdRole" class="text-red-500 text-sm"></span>
+</div>
+
+<div>
+    <label asp-for="IdLocalite">Localité :</label>
+    <select name="IdLocalite" id="IdLocalite" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+        <option value="">-- Sélectionnez une localité --</option>
+        @foreach (var localite in Model.Localites)
+        {
+            <option value="@localite.Value" @(localite.Value == Model.IdLocalite.ToString() ? "selected" : "")>@localite.Text</option>
+        }
+    </select>
+    <span asp-validation-for="IdLocalite" class="text-red-500 text-sm"></span>
+</div>
+
+
+    <div>
+        <label asp-for="Rue">Rue :</label>
+        <input asp-for="Rue" name="Rue" id="Rue" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Rue" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="Ville">Ville :</label>
+        <input asp-for="Ville" name="Ville" id="Ville" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Ville" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="Pays">Pays :</label>
+        <input asp-for="Pays" name="Pays" id="Pays" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Pays" class="text-red-500 text-sm"></span>
+    </div>
+
+    <!-- Champs spécifiques -->
+    <div id="carteEtudiantDiv" class="@(Model.IdRole == 1 ? "" : "hidden")">
+        <label asp-for="CarteEtudiant">Carte Étudiant :</label>
+        <input asp-for="CarteEtudiant" name="CarteEtudiant" id="CarteEtudiant" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="CarteEtudiant" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div id="specialiteDiv" class="@(Model.IdRole == 2 ? "" : "hidden")">
+        <label asp-for="Specialite">Spécialité :</label>
+        <input asp-for="Specialite" name="Specialite" id="Specialite" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        <span asp-validation-for="Specialite" class="text-red-500 text-sm"></span>
+    </div>
+
+    <button type="submit" class="mt-4 inline-flex justify-center py-2 px-4 rounded-md bg-blue-600 text-white hover:bg-blue-700">Modifier</button>
+</form>
+
+<div class="mt-4 text-center">
+    <a href="/utilisateurs/list" class="text-blue-600 hover:underline">Retour à la liste des utilisateurs</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function toggleRoleFields() {
+            const role = document.getElementById('IdRole').value;
+            document.getElementById('carteEtudiantDiv').classList.toggle('hidden', role !== '1');
+            document.getElementById('specialiteDiv').classList.toggle('hidden', role !== '2');
+        }
+
+        function validateForm() {
+            const role = document.getElementById('IdRole').value;
+            const carte = document.getElementById('CarteEtudiant')?.value;
+            const spec = document.getElementById('Specialite')?.value;
+
+            if (role === "1" && !carte) {
+                alert("Veuillez entrer la Carte Étudiant.");
+                return false;
+            }
+
+            if (role === "2" && !spec) {
+                alert("Veuillez entrer la Spécialité.");
+                return false;
+            }
+
+            return true;
+        }
+
+        document.getElementById('IdRole').addEventListener('change', toggleRoleFields);
+        toggleRoleFields(); // initial call
+    </script>
+}
