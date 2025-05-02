@@ -9,19 +9,22 @@ namespace ItFormationCentre.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdAdresse { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "La rue est requise.")]
+        [StringLength(100, ErrorMessage = "La rue ne peut pas dépasser 100 caractères.")]
         public string Rue { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "Le pays est requis.")]
+        [StringLength(50, ErrorMessage = "Le pays ne peut pas dépasser 50 caractères.")]
         public string Pays { get; set; }
 
-        public int IdLocalite { get; set; }
-    
-        public Localite? Localite { get; set; }
+        [Required(ErrorMessage = "La ville est requise.")]
+        [StringLength(50, ErrorMessage = "La ville ne peut pas dépasser 50 caractères.")]
+        public string Ville { get; set; }
 
-        public int IdUtilisateur { get; set; }
-        public Utilisateur? Utilisateur { get; set; }
+        [ForeignKey("Localite")]
+        public int IdLocalite { get; set; }
+
+        // Propriété de navigation
+        public Localite? Localite { get; set; }
     }
 }
