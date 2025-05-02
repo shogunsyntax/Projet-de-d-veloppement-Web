@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-
+using ItFormationCentre.Models;
+using System.Collections.Generic;
 namespace ItFormationCentre.ViewModels
 {
     public class AdresseViewModel
